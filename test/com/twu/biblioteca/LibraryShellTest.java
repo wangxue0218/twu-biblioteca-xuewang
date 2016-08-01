@@ -162,6 +162,31 @@ public class LibraryShellTest {
         LibraryRouter libraryRouter = new LibraryRouter(RouterState.MainMenu, new LibraryService());
         assertEquals(true, libraryRouter.GetRouteMessage("3").isWaitFroInput());
     }
-    
+
+    @Test
+    public void Should_dispaly_success_message_when_user_input_valid_book_name_and_current_status_is_returnBook(){
+        LibraryService libraryService = new LibraryService();
+        libraryService.CheckoutBook("Math");
+        LibraryRouter libraryRouter = new LibraryRouter(RouterState.Return, libraryService);
+        String expectMessage = "Thank you for returning the book.\n";
+        String actualMessage = libraryRouter.GetRouteMessage("Math").getText();
+        assertEquals(expectMessage, actualMessage);
+    }
+
+    @Test
+    public void Should_display_main_menu_message_when_user_input_Invalid_message_and_current_status_is_returnBooks_and_continue_execution(){
+        String mainMenuMessage = "********MainMenu************\n"
+                + "****************************\n"
+                + "1. List Books\n"
+                + "2. Checkout Books\n"
+                + "3. Return Books\n"
+                + "4. Quit\n";
+        LibraryRouter libraryRouter = new LibraryRouter(RouterState.Return, new LibraryService());
+        libraryRouter.GetRouteMessage("hehe");
+        String actualMessage = libraryRouter.GetRouteMessage("").getText();
+        assertEquals(mainMenuMessage, actualMessage);
+    }
+
+
 
 }
