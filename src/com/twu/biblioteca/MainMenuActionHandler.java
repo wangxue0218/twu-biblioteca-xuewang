@@ -25,7 +25,10 @@ public class MainMenuActionHandler implements IActionHandler{
             String booksDetials = m_libraryService.ListBooks();
             return new RouterMessage(
                     false, booksDetials + MainMenuText);
-        } else {
+        }else if(userInput.equals("4")){
+            return new RouterMessage(true, "");
+        }
+        else {
             return new RouterMessage(
                     false,
                     "Select a valid option!\n" + MainMenuText);

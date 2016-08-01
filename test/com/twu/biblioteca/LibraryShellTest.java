@@ -77,5 +77,11 @@ public class LibraryShellTest {
         assertEquals(mainMenuText,actualResult);
     }
 
+    @Test
+    public void Should_quit_when_user_input_is_Quit_and_current_state_is_MainMenu(){
+        LibraryRouter libraryRouter = new LibraryRouter(RouterState.MainMenu, new LibraryService());
+        assertEquals(true, libraryRouter.GetRouteMessage("4").Exit);
+    }
+
     
 }
