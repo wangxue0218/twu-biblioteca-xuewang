@@ -1,20 +1,45 @@
 package com.twu.biblioteca;
 
-/**
- * Created by xuewang on 8/1/16.
- */
+
+import com.sun.corba.se.impl.presentation.rmi.IDLTypeException;
+
+import static com.twu.biblioteca.RouterState.*;
+import static com.twu.biblioteca.RouterState.Initialize;
+
 public class LibraryRouter {
-    RouterState m_routerState;
+
+    RouterContext m_routerContext;
     LibraryService m_libraryService;
 
     public LibraryRouter(RouterState routerState,LibraryService libraryService){
         m_libraryService = libraryService;
-        m_routerState = routerState;
+        m_routerContext = new RouterContext(routerState);
     }
 
-    public void RouteMessage(){
-        if(m_routerState.equals(RouterState.Initialize)){
-            m_libraryService.GetWelcomeMessage();
+    public RouterMessage GetRouteMessage(String userInput){
+        return GetActionHandler().Handle(userInput);
+
+//        if(m_routerState.equals(RouterState.Initialize)){
+//            m_libraryService.GetWelcomeMessage();
+//            return null;
+//        }
+//        if(m_routerState.equals(RouterState.MainMenu)){
+//            String mainMenuString = "********MainMenu************\n"
+//                                  + "****************************\n"
+//                                  + "1. List Books\n";
+//            return mainMenuString;
+//        } return null;
+    }
+    IActionHandler GetActionHandler()
+    {
+        switch (m_routerContext.GetCurrentState())
+        {
+            case Initialize:
+                return new InitializeActionHandler(m_routerContext, m_libraryService);
+            case MainMenu:
+                return new MainMenuActionHandler(m_routerContext, m_libraryService);
+            default:
+                return null;
         }
     }
 }

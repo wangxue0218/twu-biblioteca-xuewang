@@ -11,13 +11,17 @@ public class LibraryService {
         }
     };
 
-    public void GetWelcomeMessage(){
-        System.out.print("*****Welcom to TWU Library!*****");
+    public String GetWelcomeMessage(){
+
+        String welcomeMessage = "*****Welcom to TWU Library!*****";
+        return welcomeMessage;
     }
 
-    public void ListBooks(){
+    public String ListBooks(){
+        String booksDetails = "";
         for(int i=0; i<allBooks.size(); i++){
-            System.out.println(allBooks.get(i).getBookName() + "," + allBooks.get(i).getBookAuthor() + "," + allBooks.get(i).getBookYear());
+            booksDetails += (allBooks.get(i).getBookName() + "," + allBooks.get(i).getBookAuthor() + "," + allBooks.get(i).getBookYear() + "\n");
         }
+        return booksDetails;
     }
 }

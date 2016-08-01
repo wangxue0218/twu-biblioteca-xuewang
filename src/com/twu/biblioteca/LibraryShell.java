@@ -5,6 +5,6 @@ public class LibraryShell {
     public void Execute()
     {
          LibraryRouter router = new LibraryRouter(RouterState.Initialize, new LibraryService());
-         router.RouteMessage();
+         RouterMessage message = router.GetRouteMessage(null);
     }
 }
