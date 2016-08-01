@@ -7,13 +7,12 @@ import org.junit.Test;
 
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
-import java.io.OutputStream;
 
 import static org.junit.Assert.assertEquals;
 
 public class LibraryServiceTest {
     private PrintStream console = null;
-    private OutputStream outputStream = null;
+    private ByteArrayOutputStream outputStream = null;
 
     @Before
     public void setUp() throws Exception {
