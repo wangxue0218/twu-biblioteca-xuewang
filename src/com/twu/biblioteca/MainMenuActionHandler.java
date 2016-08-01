@@ -28,7 +28,7 @@ public class MainMenuActionHandler implements IActionHandler{
         } else {
             return new RouterMessage(
                     false,
-                    "Invalid input, Please try again\n" + MainMenuText);
+                    "Select a valid option!\n" + MainMenuText);
         }
     }
 }

@@ -54,5 +54,28 @@ public class LibraryShellTest {
         String actualResult = libraryRouter.GetRouteMessage("1").Text;
         assertEquals(expectResult,actualResult);
     }
+
+    @Test
+    public void Should_display_invalid_message_when_user_input_is_not_List_Books_and_current_state_is_MainMenu(){
+        String mainMenuText = "********MainMenu************\n"
+                + "****************************\n"
+                + "1. List Books\n";
+        LibraryRouter libraryRouter = new LibraryRouter(RouterState.MainMenu, new LibraryService());
+        String actualResult = libraryRouter.GetRouteMessage("3").Text;
+        String expectResult = "Select a valid option!\n" + mainMenuText;
+        assertEquals(expectResult, actualResult);
+    }
+
+    @Test
+    public void Should_display_main_menu_when_user_input_is_not_list_book_and_current_state_is_MainMenu_and_user_continue_exeution(){
+        String mainMenuText = "********MainMenu************\n"
+                + "****************************\n"
+                + "1. List Books\n";
+        LibraryRouter libraryRouter = new LibraryRouter(RouterState.MainMenu, new LibraryService());
+        libraryRouter.GetRouteMessage("3");
+        String actualResult = libraryRouter.GetRouteMessage("").Text;
+        assertEquals(mainMenuText,actualResult);
+    }
+
     
 }
