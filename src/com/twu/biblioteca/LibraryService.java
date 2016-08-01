@@ -17,7 +17,7 @@ public class LibraryService {
 
     public void ListBooks(){
         for(int i=0; i<allBooks.size(); i++){
-            System.out.println(allBooks.get(i).getBookName());
+            System.out.println(allBooks.get(i).getBookName() + "," + allBooks.get(i).getBookAuthor() + "," + allBooks.get(i).getBookYear());
         }
     }
 }
