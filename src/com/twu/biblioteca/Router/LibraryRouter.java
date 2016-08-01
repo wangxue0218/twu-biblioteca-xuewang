@@ -16,16 +16,6 @@ public class LibraryRouter {
     public RouterMessage GetRouteMessage(String userInput){
         return GetActionHandler().Handle(userInput);
 
-//        if(m_routerState.equals(RouterState.Initialize)){
-//            m_libraryService.GetWelcomeMessage();
-//            return null;
-//        }
-//        if(m_routerState.equals(RouterState.MainMenu)){
-//            String mainMenuString = "********MainMenu************\n"
-//                                  + "****************************\n"
-//                                  + "1. List Books\n";
-//            return mainMenuString;
-//        } return null;
     }
     IActionHandler GetActionHandler()
     {

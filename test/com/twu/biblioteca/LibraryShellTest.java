@@ -79,5 +79,16 @@ public class LibraryShellTest {
         assertEquals(true, libraryRouter.GetRouteMessage("2").isWaitFroInput());
     }
 
-    
+    @Test
+    public void Should_return_books_without_checked_out_book_when_current_status_is_MainMenu_and_user_select_list_books(){
+        String mainMenuText = "********MainMenu************\n"
+                + "****************************\n"
+                + "1. List Books\n";
+        LibraryService libraryService = new LibraryService();
+        libraryService.CheckoutBook("Math");
+        LibraryRouter libraryRouter = new LibraryRouter(RouterState.MainMenu, libraryService);
+        String actualListBooks = libraryRouter.GetRouteMessage("1").getText();
+        String expectListBooks = "English,David,1889-09-20\n" + "History,Bob,1990-01-28\n" + mainMenuText;
+        assertEquals(expectListBooks, actualListBooks);
+    }
 }
