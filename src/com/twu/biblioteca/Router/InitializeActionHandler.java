@@ -1,9 +1,11 @@
-package com.twu.biblioteca;
+package com.twu.biblioteca.Router;
+
+import com.twu.biblioteca.Service.LibraryService;
 
 /**
  * Created by xuewang on 8/1/16.
  */
-public class InitializeActionHandler implements IActionHandler{
+public class InitializeActionHandler implements IActionHandler {
     RouterContext m_routerContext;
     LibraryService m_libraryService;
 
@@ -16,6 +18,6 @@ public class InitializeActionHandler implements IActionHandler{
     public RouterMessage Handle(String userInput) {
         String welcomeMessage = m_libraryService.GetWelcomeMessage();
         m_routerContext.SetNextState(RouterState.MainMenu);
-        return new RouterMessage(false, welcomeMessage);
+        return new RouterMessage(false, welcomeMessage, false);
     }
 }

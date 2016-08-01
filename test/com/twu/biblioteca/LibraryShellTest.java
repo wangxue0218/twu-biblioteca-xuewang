@@ -1,5 +1,8 @@
 package com.twu.biblioteca;
 
+import com.twu.biblioteca.Service.LibraryService;
+import com.twu.biblioteca.Router.LibraryRouter;
+import com.twu.biblioteca.Router.RouterState;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -10,24 +13,11 @@ import java.io.PrintStream;
 import static org.junit.Assert.assertEquals;
 
 public class LibraryShellTest {
-    private PrintStream console = null;
-    private ByteArrayOutputStream outputStream = null;
 
-    @Before
-    public void setUp() throws Exception {
-        outputStream = new ByteArrayOutputStream();
-        console = System.out;
-        System.setOut(new PrintStream(outputStream));
-    }
-
-    @After
-    public void tearDown() throws Exception {
-        System.setOut(console);
-    }
     @Test
     public void Should_display_welcome_message_when_current_state_is_Initializing(){
         LibraryRouter libraryRouter = new LibraryRouter(RouterState.Initialize,new LibraryService());
-        String actualResult = libraryRouter.GetRouteMessage("").Text;
+        String actualResult = libraryRouter.GetRouteMessage("").getText();
         String welcomMessage = "*****Welcom to TWU Library!*****";
         assertEquals(welcomMessage, actualResult);
     }
@@ -38,7 +28,7 @@ public class LibraryShellTest {
         String exceptResult = "********MainMenu************\n"
                             + "****************************\n"
                             + "1. List Books\n";
-        String actualResult = libraryRouter.GetRouteMessage("").Text;
+        String actualResult = libraryRouter.GetRouteMessage("").getText();
         assertEquals(exceptResult,actualResult);
     }
 
@@ -51,7 +41,7 @@ public class LibraryShellTest {
                 + "********MainMenu************\n"
                 + "****************************\n"
                 + "1. List Books\n";
-        String actualResult = libraryRouter.GetRouteMessage("1").Text;
+        String actualResult = libraryRouter.GetRouteMessage("1").getText();
         assertEquals(expectResult,actualResult);
     }
 
@@ -61,7 +51,7 @@ public class LibraryShellTest {
                 + "****************************\n"
                 + "1. List Books\n";
         LibraryRouter libraryRouter = new LibraryRouter(RouterState.MainMenu, new LibraryService());
-        String actualResult = libraryRouter.GetRouteMessage("3").Text;
+        String actualResult = libraryRouter.GetRouteMessage("3").getText();
         String expectResult = "Select a valid option!\n" + mainMenuText;
         assertEquals(expectResult, actualResult);
     }
@@ -73,14 +63,20 @@ public class LibraryShellTest {
                 + "1. List Books\n";
         LibraryRouter libraryRouter = new LibraryRouter(RouterState.MainMenu, new LibraryService());
         libraryRouter.GetRouteMessage("3");
-        String actualResult = libraryRouter.GetRouteMessage("").Text;
+        String actualResult = libraryRouter.GetRouteMessage("").getText();
         assertEquals(mainMenuText,actualResult);
     }
 
     @Test
     public void Should_quit_when_user_input_is_Quit_and_current_state_is_MainMenu(){
         LibraryRouter libraryRouter = new LibraryRouter(RouterState.MainMenu, new LibraryService());
-        assertEquals(true, libraryRouter.GetRouteMessage("4").Exit);
+        assertEquals(true, libraryRouter.GetRouteMessage("4").isExit());
+    }
+
+    @Test
+    public void Should_waiting_for_user_input_when_user_select_checkoutBook_and_current_status_is_mainmenu(){
+        LibraryRouter libraryRouter = new LibraryRouter(RouterState.MainMenu, new LibraryService());
+        assertEquals(true, libraryRouter.GetRouteMessage("2").isWaitFroInput());
     }
 
     

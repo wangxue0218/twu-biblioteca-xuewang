@@ -1,17 +1,14 @@
-package com.twu.biblioteca;
+package com.twu.biblioteca.Router;
 
 
-import com.sun.corba.se.impl.presentation.rmi.IDLTypeException;
-
-import static com.twu.biblioteca.RouterState.*;
-import static com.twu.biblioteca.RouterState.Initialize;
+import com.twu.biblioteca.Service.LibraryService;
 
 public class LibraryRouter {
 
     RouterContext m_routerContext;
     LibraryService m_libraryService;
 
-    public LibraryRouter(RouterState routerState,LibraryService libraryService){
+    public LibraryRouter(RouterState routerState, LibraryService libraryService){
         m_libraryService = libraryService;
         m_routerContext = new RouterContext(routerState);
     }
