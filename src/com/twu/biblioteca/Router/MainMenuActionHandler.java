@@ -13,7 +13,10 @@ public class MainMenuActionHandler implements IActionHandler {
     LibraryService m_libraryService;
     private static String MainMenuText = "********MainMenu************\n"
             + "****************************\n"
-            + "1. List Books\n";
+            + "1. List Books\n"
+            + "2. Checkout Books\n"
+            + "3. Return Books\n"
+            + "4. Quit\n";
 
     public MainMenuActionHandler(RouterContext routerContext, LibraryService libraryService)
     {
@@ -39,6 +42,7 @@ public class MainMenuActionHandler implements IActionHandler {
             return new RouterMessage(false, GetBookDetails() + MainMenuText, false);
         }
         else if(userInput.equals("2")){
+            m_routerContext.SetNextState(RouterState.CheckOut);
             return new RouterMessage(false, null, true);
         } else if(userInput.equals("4")){
             return new RouterMessage(true, "", false);

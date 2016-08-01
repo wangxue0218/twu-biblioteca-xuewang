@@ -26,8 +26,11 @@ public class LibraryShellTest {
     public void Should_display_main_menu_when_current_state_is_MainMenu(){
         LibraryRouter libraryRouter = new LibraryRouter(RouterState.MainMenu,new LibraryService());
         String exceptResult = "********MainMenu************\n"
-                            + "****************************\n"
-                            + "1. List Books\n";
+                + "****************************\n"
+                + "1. List Books\n"
+                + "2. Checkout Books\n"
+                + "3. Return Books\n"
+                + "4. Quit\n";
         String actualResult = libraryRouter.GetRouteMessage("").getText();
         assertEquals(exceptResult,actualResult);
     }
@@ -40,7 +43,10 @@ public class LibraryShellTest {
                 + "History,Bob,1990-01-28\n"
                 + "********MainMenu************\n"
                 + "****************************\n"
-                + "1. List Books\n";
+                + "1. List Books\n"
+                + "2. Checkout Books\n"
+                + "3. Return Books\n"
+                + "4. Quit\n";
         String actualResult = libraryRouter.GetRouteMessage("1").getText();
         assertEquals(expectResult,actualResult);
     }
@@ -49,7 +55,10 @@ public class LibraryShellTest {
     public void Should_display_invalid_message_when_user_input_is_not_List_Books_and_current_state_is_MainMenu(){
         String mainMenuText = "********MainMenu************\n"
                 + "****************************\n"
-                + "1. List Books\n";
+                + "1. List Books\n"
+                + "2. Checkout Books\n"
+                + "3. Return Books\n"
+                + "4. Quit\n";
         LibraryRouter libraryRouter = new LibraryRouter(RouterState.MainMenu, new LibraryService());
         String actualResult = libraryRouter.GetRouteMessage("3").getText();
         String expectResult = "Select a valid option!\n" + mainMenuText;
@@ -60,7 +69,10 @@ public class LibraryShellTest {
     public void Should_display_main_menu_when_user_input_is_not_list_book_and_current_state_is_MainMenu_and_user_continue_exeution(){
         String mainMenuText = "********MainMenu************\n"
                 + "****************************\n"
-                + "1. List Books\n";
+                + "1. List Books\n"
+                + "2. Checkout Books\n"
+                + "3. Return Books\n"
+                + "4. Quit\n";
         LibraryRouter libraryRouter = new LibraryRouter(RouterState.MainMenu, new LibraryService());
         libraryRouter.GetRouteMessage("3");
         String actualResult = libraryRouter.GetRouteMessage("").getText();
@@ -83,12 +95,29 @@ public class LibraryShellTest {
     public void Should_return_books_without_checked_out_book_when_current_status_is_MainMenu_and_user_select_list_books(){
         String mainMenuText = "********MainMenu************\n"
                 + "****************************\n"
-                + "1. List Books\n";
+                + "1. List Books\n"
+                + "2. Checkout Books\n"
+                + "3. Return Books\n"
+                + "4. Quit\n";
         LibraryService libraryService = new LibraryService();
         libraryService.CheckoutBook("Math");
         LibraryRouter libraryRouter = new LibraryRouter(RouterState.MainMenu, libraryService);
         String actualListBooks = libraryRouter.GetRouteMessage("1").getText();
         String expectListBooks = "English,David,1889-09-20\n" + "History,Bob,1990-01-28\n" + mainMenuText;
         assertEquals(expectListBooks, actualListBooks);
+    }
+
+    @Test
+    public void Should_dispaly_success_message_when_user_input_valid_book_name_and_current_status_is_checkoutBook(){
+        String mainMenuMessage = "********MainMenu************\n"
+                + "****************************\n"
+                + "1. List Books\n"
+                + "2. Checkout Books\n"
+                + "3. Return Books\n"
+                + "4. Quit\n";
+        LibraryRouter libraryRouter = new LibraryRouter(RouterState.CheckOut, new LibraryService());
+        String expectMessage = "Thank you! Enjoy the book.\n" + mainMenuMessage;
+        String actualMessage = libraryRouter.GetRouteMessage("Math").getText();
+        assertEquals(expectMessage, actualMessage);
     }
 }
