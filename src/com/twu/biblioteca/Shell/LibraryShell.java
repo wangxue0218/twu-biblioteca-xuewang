@@ -20,21 +20,22 @@ public class LibraryShell {
         m_outputStream = outputStream;
         m_inputStream = inputStream;
     }
-    public void Execute() throws IOException {
 
+    public void Execute() throws IOException {
         LibraryRouter router = new LibraryRouter(RouterState.Initialize, new LibraryService());
         String userInput = null;
+        Scanner inputScanner = new Scanner(m_inputStream);
+
         while (true)
         {
             RouterMessage message = router.GetRouteMessage(userInput);
             m_outputStream.write(message.getText().getBytes());
             if (message.isExit()) { break; }
             if(message.isWaitFroInput()){
-                userInput = new Scanner(m_inputStream).next();
+                userInput = inputScanner.next();
             }else {
                 userInput = null;
             }
-
         }
     }
 }

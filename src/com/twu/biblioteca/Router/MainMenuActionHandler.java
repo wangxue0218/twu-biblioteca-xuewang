@@ -37,21 +37,22 @@ public class MainMenuActionHandler implements IActionHandler {
     public RouterMessage Handle(String userInput)
     {
         if (userInput == null) {
-            return new RouterMessage(false, MainMenuText, false);
-        } else if (userInput.equals("1")) {
-            return new RouterMessage(false, GetBookDetails() + MainMenuText, false);
+            return new RouterMessage(false, MainMenuText, true);
         }
-        else if(userInput.equals("2")){
+        if (userInput.equals("1")) {
+            return new RouterMessage(false, GetBookDetails(), false);
+        }
+        if(userInput.equals("2")){
             m_routerContext.SetNextState(RouterState.CheckOut);
-            return new RouterMessage(false, null, true);
-        } else if(userInput.equals("3")){
+            return new RouterMessage(false, "", true);
+        }
+        if(userInput.equals("3")){
             m_routerContext.SetNextState(RouterState.Return);
-            return new RouterMessage(false, null, true);
-        } else if(userInput.equals("4")){
+            return new RouterMessage(false, "", true);
+        }
+        if(userInput.equals("4")){
             return new RouterMessage(true, "", false);
         }
-        else {
-            return new RouterMessage(false, "Select a valid option!\n" + MainMenuText, false);
-        }
+        return new RouterMessage(false, "Select a valid option!\n", true);
     }
 }

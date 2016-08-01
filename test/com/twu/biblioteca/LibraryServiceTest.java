@@ -2,13 +2,7 @@ package com.twu.biblioteca;
 
 
 import com.twu.biblioteca.Service.LibraryService;
-import org.junit.After;
-import org.junit.Before;
 import org.junit.Test;
-
-import java.io.ByteArrayOutputStream;
-import java.io.PrintStream;
-import java.util.ArrayList;
 
 import static org.junit.Assert.assertEquals;
 
@@ -17,7 +11,7 @@ public class LibraryServiceTest {
     public void Should_get_welcome_message_when_calling_getWelcomeMessage_method(){
         LibraryService libraryService = new LibraryService();
         String welcomMessage = libraryService.GetWelcomeMessage();
-        String actualWelcomMessage = "*****Welcom to TWU Library!*****";
+        String actualWelcomMessage = "*****Welcom to TWU Library!*****\n\n";
         assertEquals(actualWelcomMessage, welcomMessage);
     }
 

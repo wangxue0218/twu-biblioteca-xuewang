@@ -16,9 +16,9 @@ public class ReturnActionHandler implements IActionHandler {
     }
     @Override
     public RouterMessage Handle(String userInput) {
-        boolean checkoutSuccess = m_libraryService.ReturnBook(userInput);
+        boolean returnSuccess = m_libraryService.ReturnBook(userInput);
         m_routerContext.SetNextState(RouterState.MainMenu);
-        if (checkoutSuccess) {
+        if (returnSuccess) {
             return new RouterMessage(false, "Thank you for returning the book.\n", false);
         }
         return new RouterMessage(false, "That is not a valid book to return.\n", false);

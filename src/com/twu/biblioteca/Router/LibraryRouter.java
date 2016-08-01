@@ -28,7 +28,7 @@ public class LibraryRouter {
                 return new MainMenuActionHandler(m_routerContext, m_libraryService);
             case CheckOut:
                 return new CheckoutActionHandler(m_routerContext, m_libraryService);
-            case Return:;
+            case Return:
                 return new ReturnActionHandler(m_routerContext, m_libraryService);
             default:
                 throw new NotImplementedException();
