@@ -120,4 +120,46 @@ public class LibraryShellTest {
         String actualMessage = libraryRouter.GetRouteMessage("Math").getText();
         assertEquals(expectMessage, actualMessage);
     }
+    @Test
+    public void Should_display_main_menu_message_when_user_input_valid_message_and_current_status_is_checkoutBooks_and_continue_execution(){
+        String mainMenuMessage = "********MainMenu************\n"
+                + "****************************\n"
+                + "1. List Books\n"
+                + "2. Checkout Books\n"
+                + "3. Return Books\n"
+                + "4. Quit\n";
+        LibraryRouter libraryRouter = new LibraryRouter(RouterState.CheckOut, new LibraryService());
+        libraryRouter.GetRouteMessage("Math");
+        String actualMessage = libraryRouter.GetRouteMessage("").getText();
+        assertEquals(mainMenuMessage, actualMessage);
+    }
+
+    @Test
+    public void Should_dispaly_unsuccess_message_when_user_input_valid_book_name_and_current_status_is_checkoutBook(){
+        String mainMenuMessage = "********MainMenu************\n"
+                + "****************************\n"
+                + "1. List Books\n"
+                + "2. Checkout Books\n"
+                + "3. Return Books\n"
+                + "4. Quit\n";
+        LibraryRouter libraryRouter = new LibraryRouter(RouterState.CheckOut, new LibraryService());
+        String expectMessage = "That book is not available.\n" + mainMenuMessage;
+        String actualMessage = libraryRouter.GetRouteMessage("hehe").getText();
+        assertEquals(expectMessage, actualMessage);
+    }
+
+    @Test
+    public void Should_display_main_menu_message_when_user_input_Invalid_message_and_current_status_is_checkoutBooks_and_continue_execution(){
+        String mainMenuMessage = "********MainMenu************\n"
+                + "****************************\n"
+                + "1. List Books\n"
+                + "2. Checkout Books\n"
+                + "3. Return Books\n"
+                + "4. Quit\n";
+        LibraryRouter libraryRouter = new LibraryRouter(RouterState.CheckOut, new LibraryService());
+        libraryRouter.GetRouteMessage("hehe");
+        String actualMessage = libraryRouter.GetRouteMessage("").getText();
+        assertEquals(mainMenuMessage, actualMessage);
+    }
+
 }
