@@ -44,6 +44,9 @@ public class MainMenuActionHandler implements IActionHandler {
         else if(userInput.equals("2")){
             m_routerContext.SetNextState(RouterState.CheckOut);
             return new RouterMessage(false, null, true);
+        } else if(userInput.equals("3")){
+            m_routerContext.SetNextState(RouterState.Return);
+            return new RouterMessage(false, null, true);
         } else if(userInput.equals("4")){
             return new RouterMessage(true, "", false);
         }

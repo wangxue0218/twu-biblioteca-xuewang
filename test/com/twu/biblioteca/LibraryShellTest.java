@@ -157,4 +157,11 @@ public class LibraryShellTest {
         assertEquals(mainMenuMessage, actualMessage);
     }
 
+    @Test
+    public void Should_waiting_for_user_input_when_user_select_returnBook_and_current_status_is_mainmenu(){
+        LibraryRouter libraryRouter = new LibraryRouter(RouterState.MainMenu, new LibraryService());
+        assertEquals(true, libraryRouter.GetRouteMessage("3").isWaitFroInput());
+    }
+    
+
 }
