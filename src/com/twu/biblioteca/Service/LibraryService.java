@@ -40,4 +40,17 @@ public class LibraryService {
         return true;
     }
 
+    public boolean ReturnBook(String name){
+        int i;
+        for(i=0; i<allBooks.size(); i++){
+            if(allBooks.get(i).getBookName().equals(name)&& allBooks.get(i).getStatus()){
+                allBooks.get(i).setStatus(false);
+                break;
+            }
+        }
+        if(i == allBooks.size())
+            return false;
+        return true;
+    }
+
 }

@@ -61,5 +61,36 @@ public class LibraryServiceTest {
         libraryService.CheckoutBook("English");
         assertEquals("History",libraryService.ListBooks().get(0).getBookName());
     }
+    @Test
+    public void Should_return_true_when_call_returnBook_if_the_book_has_been_checked_out(){
+        LibraryService libraryService = new LibraryService();
+        libraryService.CheckoutBook("Math");
+        boolean isReturned = libraryService.ReturnBook("Math");
+        assertEquals(true, isReturned);
+    }
+
+    @Test
+    public void Should_return_false_when_call_returnBook_if_the_book_has_been_checked_out(){
+        LibraryService libraryService = new LibraryService();
+        libraryService.CheckoutBook("Math");
+        boolean isReturned = libraryService.ReturnBook("English");
+        assertEquals(false, isReturned);
+    }
+
+    @Test
+    public void Should_return_books_that_are_not_returned_when_calling_listBooks(){
+        LibraryService libraryService = new LibraryService();
+        libraryService.CheckoutBook("Math");
+        assertEquals(2, libraryService.ListBooks().size());
+        assertEquals("English", libraryService.ListBooks().get(0).getBookName());
+        assertEquals("History", libraryService.ListBooks().get(1).getBookName());
+        libraryService.ReturnBook("Math");
+        assertEquals(3, libraryService.ListBooks().size());
+        assertEquals("Math", libraryService.ListBooks().get(0).getBookName());
+        assertEquals("English", libraryService.ListBooks().get(1).getBookName());
+        assertEquals("History", libraryService.ListBooks().get(2).getBookName());
+    }
+
+
 
 }

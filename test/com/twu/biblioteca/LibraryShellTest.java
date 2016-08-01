@@ -3,12 +3,7 @@ package com.twu.biblioteca;
 import com.twu.biblioteca.Service.LibraryService;
 import com.twu.biblioteca.Router.LibraryRouter;
 import com.twu.biblioteca.Router.RouterState;
-import org.junit.After;
-import org.junit.Before;
 import org.junit.Test;
-
-import java.io.ByteArrayOutputStream;
-import java.io.PrintStream;
 
 import static org.junit.Assert.assertEquals;
 
