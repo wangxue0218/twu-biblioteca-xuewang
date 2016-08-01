@@ -174,6 +174,30 @@ public class LibraryShellTest {
     }
 
     @Test
+    public void Should_display_main_menu_message_when_user_input_valid_message_and_current_status_is_returnBooks_and_continue_execution(){
+        String mainMenuMessage = "********MainMenu************\n"
+                + "****************************\n"
+                + "1. List Books\n"
+                + "2. Checkout Books\n"
+                + "3. Return Books\n"
+                + "4. Quit\n";
+        LibraryService libraryService = new LibraryService();
+        libraryService.CheckoutBook("Math");
+        LibraryRouter libraryRouter = new LibraryRouter(RouterState.Return, libraryService);
+        libraryRouter.GetRouteMessage("Math");
+        String actualMessage = libraryRouter.GetRouteMessage("").getText();
+        assertEquals(mainMenuMessage, actualMessage);
+    }
+
+    @Test
+    public void Should_dispaly_unsuccess_message_when_user_input_valid_book_name_and_current_status_is_returnBook(){
+        LibraryRouter libraryRouter = new LibraryRouter(RouterState.Return, new LibraryService());
+        String expectMessage = "That is not a valid book to return.\n";
+        String actualMessage = libraryRouter.GetRouteMessage("hehe").getText();
+        assertEquals(expectMessage, actualMessage);
+    }
+
+    @Test
     public void Should_display_main_menu_message_when_user_input_Invalid_message_and_current_status_is_returnBooks_and_continue_execution(){
         String mainMenuMessage = "********MainMenu************\n"
                 + "****************************\n"
@@ -186,7 +210,4 @@ public class LibraryShellTest {
         String actualMessage = libraryRouter.GetRouteMessage("").getText();
         assertEquals(mainMenuMessage, actualMessage);
     }
-
-
-
 }
