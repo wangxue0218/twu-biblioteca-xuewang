@@ -36,7 +36,7 @@ public class MainMenuActionHandler implements IActionHandler {
     @Override
     public RouterMessage Handle(String userInput)
     {
-        if (userInput.equals("")) {
+        if (userInput == null) {
             return new RouterMessage(false, MainMenuText, false);
         } else if (userInput.equals("1")) {
             return new RouterMessage(false, GetBookDetails() + MainMenuText, false);

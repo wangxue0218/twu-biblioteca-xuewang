@@ -2,6 +2,7 @@ package com.twu.biblioteca.Router;
 
 
 import com.twu.biblioteca.Service.LibraryService;
+import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 
 public class LibraryRouter {
 
@@ -30,7 +31,7 @@ public class LibraryRouter {
             case Return:;
                 return new ReturnActionHandler(m_routerContext, m_libraryService);
             default:
-                return null;
+                throw new NotImplementedException();
         }
     }
 }
