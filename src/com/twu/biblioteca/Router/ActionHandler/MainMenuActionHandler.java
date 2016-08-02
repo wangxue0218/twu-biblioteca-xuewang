@@ -11,9 +11,6 @@ import com.twu.biblioteca.Model.Book;
 
 import java.util.ArrayList;
 
-/**
- * Created by xuewang on 8/1/16.
- */
 public class MainMenuActionHandler implements IActionHandler {
     RouterContext m_routerContext;
     LibraryService m_libraryService;
@@ -53,6 +50,12 @@ public class MainMenuActionHandler implements IActionHandler {
             return new RouterMessage(false, getBookDetails(), false);
         }
         if(userInput.equals("2")){
+            String message = "Please input your library number and passward, and split with ','\n";
+            boolean isLogin = m_libraryService.getCurrentUser().getIsLogin();
+            if(!isLogin){
+                m_routerContext.setNextState(RouterState.LogIn);
+                return new RouterMessage(false, message, true);
+            }
             m_routerContext.setNextState(RouterState.CheckoutBook);
             return new RouterMessage(false, "", true);
         }

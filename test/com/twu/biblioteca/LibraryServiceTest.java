@@ -1,6 +1,7 @@
 package com.twu.biblioteca;
 
 
+import com.twu.biblioteca.Model.User;
 import com.twu.biblioteca.Service.LibraryService;
 import org.junit.Test;
 
@@ -58,6 +59,7 @@ public class LibraryServiceTest {
     @Test
     public void Should_return_true_when_call_returnBook_if_the_book_has_been_checked_out(){
         LibraryService libraryService = new LibraryService();
+        libraryService.setCurrentUser(new User("123-4567", "111"));
         libraryService.checkoutBook("Math");
         boolean isReturned = libraryService.returnBook("Math");
         assertEquals(true, isReturned);
@@ -74,6 +76,7 @@ public class LibraryServiceTest {
     @Test
     public void Should_return_books_that_are_not_returned_when_calling_listBooks(){
         LibraryService libraryService = new LibraryService();
+        libraryService.setCurrentUser(new User("123-4567", "111"));
         libraryService.checkoutBook("Math");
         assertEquals(2, libraryService.ListBooks().size());
         assertEquals("English", libraryService.ListBooks().get(0).getBookName());

@@ -1,6 +1,7 @@
 package com.twu.biblioteca;
 
 import com.twu.biblioteca.Model.MainMenuMessage;
+import com.twu.biblioteca.Model.User;
 import com.twu.biblioteca.Router.RouterMessage;
 import com.twu.biblioteca.Service.LibraryService;
 import com.twu.biblioteca.Router.LibraryRouter;
@@ -122,6 +123,7 @@ public class LibraryShellTest {
     @Test
     public void Should_dispaly_success_message_when_user_input_valid_book_name_and_current_status_is_returnBook(){
         LibraryService libraryService = new LibraryService();
+        libraryService.setCurrentUser(new User("123-4567", "111"));
         libraryService.checkoutBook("Math");
         LibraryRouter libraryRouter = new LibraryRouter(RouterState.Return, libraryService);
         String expectMessage = "Thank you for returning the book.\n";
@@ -133,6 +135,7 @@ public class LibraryShellTest {
     public void Should_display_main_menu_message_when_user_input_valid_message_and_current_status_is_returnBooks_and_continue_execution(){
         String mainMenuMessage = new MainMenuMessage().getMainMenu();
         LibraryService libraryService = new LibraryService();
+        libraryService.setCurrentUser(new User("123-4567", "111"));
         libraryService.checkoutBook("Math");
         LibraryRouter libraryRouter = new LibraryRouter(RouterState.Return, libraryService);
         libraryRouter.getRouteMessage("Math");
