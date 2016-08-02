@@ -69,4 +69,12 @@ public class LibraryService {
         return true;
     }
 
+    public boolean checkoutMovie(String name) {
+        int i;
+        for(i=0; i<allMovies.size(); i++){
+            if(allMovies.get(i).getMovieName().equals(name))
+                return true;
+        }
+        return false;
+    }
 }

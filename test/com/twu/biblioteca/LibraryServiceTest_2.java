@@ -20,4 +20,10 @@ public class LibraryServiceTest_2 {
         assertEquals(8, libraryService.listMovies().get(1).getMovieRating());
     }
 
+    @Test
+    public void should_return_true_when_user_input_valid_movie_name(){
+        LibraryService libraryService = new LibraryService();
+        boolean isAvailable = libraryService.checkoutMovie("Movie2");
+        assertEquals(true, isAvailable);
+    }
 }
