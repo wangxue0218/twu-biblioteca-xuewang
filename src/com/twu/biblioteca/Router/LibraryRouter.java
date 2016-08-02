@@ -14,7 +14,7 @@ public class LibraryRouter {
         m_routerContext = new RouterContext(routerState);
     }
 
-    public RouterMessage GetRouteMessage(String userInput){
+    public RouterMessage getRouteMessage(String userInput){
         return getActionHandler().handle(userInput);
 
     }

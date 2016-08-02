@@ -28,7 +28,7 @@ public class LibraryShell {
 
         while (true)
         {
-            RouterMessage message = router.GetRouteMessage(userInput);
+            RouterMessage message = router.getRouteMessage(userInput);
             m_outputStream.write(message.getText().getBytes());
             if (message.isExit()) { break; }
             if(message.isWaitFroInput()){
