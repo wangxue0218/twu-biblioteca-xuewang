@@ -60,4 +60,15 @@ public class LibraryShellTest_2 {
        String actualMessage = libraryRouter.getRouteMessage(null).getText();
        assertEquals(expectMessage, actualMessage);
    }
+
+   @Test
+    public void should_display_Login_message_and_waiting_for_input_when_user_select_Checkout_books_and_current_status_is_MainMenu_and_user_isLogin_status_is_false(){
+       LibraryRouter libraryRouter = new LibraryRouter(RouterState.MainMenu,new LibraryService());
+       String loginMessage = "Please input your library number and passward, and split with ','\n";
+       RouterMessage routerMessage = libraryRouter.getRouteMessage("2");
+       assertEquals(loginMessage, routerMessage.getText());
+       assertEquals(true, routerMessage.isWaitFroInput());
+   }
+
+   
 }
