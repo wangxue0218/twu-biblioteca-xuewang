@@ -27,8 +27,8 @@
       <file leaf-file-name="MainMenuActionHandler.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/twu/biblioteca/Router/ActionHandler/MainMenuActionHandler.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="598">
-              <caret line="76" column="34" selection-start-line="76" selection-start-column="34" selection-end-line="76" selection-end-column="34" />
+            <state relative-caret-position="613">
+              <caret line="87" column="70" selection-start-line="87" selection-start-column="70" selection-end-line="87" selection-end-column="70" />
               <folding />
             </state>
           </provider>
@@ -69,8 +69,8 @@
       <file leaf-file-name="LibraryShellTest_2.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/test/com/twu/biblioteca/LibraryShellTest_2.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="673">
-              <caret line="79" column="4" selection-start-line="79" selection-start-column="4" selection-end-line="79" selection-end-column="4" />
+            <state relative-caret-position="613">
+              <caret line="85" column="70" selection-start-line="85" selection-start-column="70" selection-end-line="85" selection-end-column="70" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -138,8 +138,8 @@
         <option value="$PROJECT_DIR$/test/com/twu/biblioteca/LibraryServiceTest.java" />
         <option value="$PROJECT_DIR$/test/com/twu/biblioteca/LibraryShellTest.java" />
         <option value="$PROJECT_DIR$/test/com/twu/biblioteca/LibraryServiceTest_2.java" />
-        <option value="$PROJECT_DIR$/src/com/twu/biblioteca/Router/ActionHandler/MainMenuActionHandler.java" />
         <option value="$PROJECT_DIR$/test/com/twu/biblioteca/LibraryShellTest_2.java" />
+        <option value="$PROJECT_DIR$/src/com/twu/biblioteca/Router/ActionHandler/MainMenuActionHandler.java" />
       </list>
     </option>
   </component>
@@ -334,7 +334,7 @@
       <recent name="com.twu.biblioteca" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.LibraryShellTest_2.should_display_Login_message_and_waiting_for_input_when_user_select_Return_books_and_current_status_is_MainMenu_and_user_isLogin_status_is_false">
+  <component name="RunManager" selected="JUnit.All in biblioteca">
     <configuration default="false" name="All in biblioteca" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
       <module name="biblioteca" />
@@ -344,32 +344,6 @@
       <option name="MAIN_CLASS_NAME" />
       <option name="METHOD_NAME" />
       <option name="TEST_OBJECT" value="package" />
-      <option name="VM_PARAMETERS" value="-ea" />
-      <option name="PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="singleModule" />
-      </option>
-      <envs />
-      <patterns />
-      <method />
-    </configuration>
-    <configuration default="false" name="LibraryShellTest.Should_display_main_menu_message_when_user_input_valid_message_and_current_status_is_returnBooks_and_continue_execution" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
-        <pattern>
-          <option name="PATTERN" value="com.twu.biblioteca.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <module name="biblioteca" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PACKAGE_NAME" value="com.twu.biblioteca" />
-      <option name="MAIN_CLASS_NAME" value="com.twu.biblioteca.LibraryShellTest" />
-      <option name="METHOD_NAME" value="Should_display_main_menu_message_when_user_input_valid_message_and_current_status_is_returnBooks_and_continue_execution" />
-      <option name="TEST_OBJECT" value="method" />
       <option name="VM_PARAMETERS" value="-ea" />
       <option name="PARAMETERS" />
       <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
@@ -447,6 +421,32 @@
       <option name="PACKAGE_NAME" value="com.twu.biblioteca" />
       <option name="MAIN_CLASS_NAME" value="com.twu.biblioteca.LibraryShellTest_2" />
       <option name="METHOD_NAME" value="should_display_Login_message_and_waiting_for_input_when_user_select_Return_books_and_current_status_is_MainMenu_and_user_isLogin_status_is_false" />
+      <option name="TEST_OBJECT" value="method" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <envs />
+      <patterns />
+      <method />
+    </configuration>
+    <configuration default="false" name="LibraryShellTest_2.should_display_Login_message_and_waiting_for_input_when_user_select_checkoutMovies_and_current_status_is_MainMenu_and_user_isLogin_status_is_false" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+        <pattern>
+          <option name="PATTERN" value="com.twu.biblioteca.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <module name="biblioteca" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" value="com.twu.biblioteca" />
+      <option name="MAIN_CLASS_NAME" value="com.twu.biblioteca.LibraryShellTest_2" />
+      <option name="METHOD_NAME" value="should_display_Login_message_and_waiting_for_input_when_user_select_checkoutMovies_and_current_status_is_MainMenu_and_user_isLogin_status_is_false" />
       <option name="TEST_OBJECT" value="method" />
       <option name="VM_PARAMETERS" value="-ea" />
       <option name="PARAMETERS" />
@@ -706,18 +706,18 @@
     </configuration>
     <list size="5">
       <item index="0" class="java.lang.String" itemvalue="JUnit.All in biblioteca" />
-      <item index="1" class="java.lang.String" itemvalue="JUnit.LibraryShellTest.Should_display_main_menu_message_when_user_input_valid_message_and_current_status_is_returnBooks_and_continue_execution" />
-      <item index="2" class="java.lang.String" itemvalue="JUnit.LibraryServiceTest_2.should_return_false_when_user_input_valid_name_and_the_library_number_of_this_book_is_not_current_user_id" />
-      <item index="3" class="java.lang.String" itemvalue="JUnit.LibraryShellTest_2.should_display_Login_message_and_waiting_for_input_when_user_select_Checkout_books_and_current_status_is_MainMenu_and_user_isLogin_status_is_false" />
-      <item index="4" class="java.lang.String" itemvalue="JUnit.LibraryShellTest_2.should_display_Login_message_and_waiting_for_input_when_user_select_Return_books_and_current_status_is_MainMenu_and_user_isLogin_status_is_false" />
+      <item index="1" class="java.lang.String" itemvalue="JUnit.LibraryServiceTest_2.should_return_false_when_user_input_valid_name_and_the_library_number_of_this_book_is_not_current_user_id" />
+      <item index="2" class="java.lang.String" itemvalue="JUnit.LibraryShellTest_2.should_display_Login_message_and_waiting_for_input_when_user_select_Checkout_books_and_current_status_is_MainMenu_and_user_isLogin_status_is_false" />
+      <item index="3" class="java.lang.String" itemvalue="JUnit.LibraryShellTest_2.should_display_Login_message_and_waiting_for_input_when_user_select_Return_books_and_current_status_is_MainMenu_and_user_isLogin_status_is_false" />
+      <item index="4" class="java.lang.String" itemvalue="JUnit.LibraryShellTest_2.should_display_Login_message_and_waiting_for_input_when_user_select_checkoutMovies_and_current_status_is_MainMenu_and_user_isLogin_status_is_false" />
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="JUnit.LibraryShellTest_2.should_display_Login_message_and_waiting_for_input_when_user_select_Return_books_and_current_status_is_MainMenu_and_user_isLogin_status_is_false" />
-        <item index="1" class="java.lang.String" itemvalue="JUnit.LibraryShellTest_2.should_display_Login_message_and_waiting_for_input_when_user_select_Checkout_books_and_current_status_is_MainMenu_and_user_isLogin_status_is_false" />
-        <item index="2" class="java.lang.String" itemvalue="JUnit.All in biblioteca" />
-        <item index="3" class="java.lang.String" itemvalue="JUnit.LibraryServiceTest_2.should_return_false_when_user_input_valid_name_and_the_library_number_of_this_book_is_not_current_user_id" />
-        <item index="4" class="java.lang.String" itemvalue="JUnit.LibraryShellTest.Should_display_main_menu_message_when_user_input_valid_message_and_current_status_is_returnBooks_and_continue_execution" />
+        <item index="0" class="java.lang.String" itemvalue="JUnit.All in biblioteca" />
+        <item index="1" class="java.lang.String" itemvalue="JUnit.LibraryShellTest_2.should_display_Login_message_and_waiting_for_input_when_user_select_checkoutMovies_and_current_status_is_MainMenu_and_user_isLogin_status_is_false" />
+        <item index="2" class="java.lang.String" itemvalue="JUnit.LibraryShellTest_2.should_display_Login_message_and_waiting_for_input_when_user_select_Return_books_and_current_status_is_MainMenu_and_user_isLogin_status_is_false" />
+        <item index="3" class="java.lang.String" itemvalue="JUnit.LibraryShellTest_2.should_display_Login_message_and_waiting_for_input_when_user_select_Checkout_books_and_current_status_is_MainMenu_and_user_isLogin_status_is_false" />
+        <item index="4" class="java.lang.String" itemvalue="JUnit.LibraryServiceTest_2.should_return_false_when_user_input_valid_name_and_the_library_number_of_this_book_is_not_current_user_id" />
       </list>
     </recent_temporary>
   </component>
@@ -738,13 +738,13 @@
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="All_in_biblioteca - 2016.08.02 at 20h 29m 43s.xml">
-      <configuration name="All in biblioteca" configurationId="JUnit" />
-    </history-entry>
     <history-entry file="All_in_biblioteca - 2016.08.02 at 20h 30m 44s.xml">
       <configuration name="All in biblioteca" configurationId="JUnit" />
     </history-entry>
     <history-entry file="All_in_biblioteca - 2016.08.02 at 20h 34m 03s.xml">
+      <configuration name="All in biblioteca" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="All_in_biblioteca - 2016.08.02 at 20h 54m 59s.xml">
       <configuration name="All in biblioteca" configurationId="JUnit" />
     </history-entry>
     <history-entry file="LibraryServiceTest_2_should_return_false_when_user_input_valid_name_and_the_library_number_of_this_book_is_not_current_user_id - 2016.08.02 at 20h 33m 53s.xml">
@@ -759,11 +759,11 @@
     <history-entry file="LibraryShellTest_2_should_display_Login_message_and_waiting_for_input_when_user_select_Return_books_and_current_status_is_MainMenu_and_user_isLogin_status_is_false - 2016.08.02 at 20h 50m 20s.xml">
       <configuration name="LibraryShellTest_2.should_display_Login_message_and_waiting_for_input_when_user_select_Return_books_and_current_status_is_MainMenu_and_user_isLogin_status_is_false" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="LibraryShellTest_Should_dispaly_success_message_when_user_input_valid_book_name_and_current_status_is_returnBook - 2016.08.02 at 20h 04m 16s.xml">
-      <configuration name="LibraryShellTest.Should_dispaly_success_message_when_user_input_valid_book_name_and_current_status_is_returnBook" configurationId="JUnit" />
+    <history-entry file="LibraryShellTest_2_should_display_Login_message_and_waiting_for_input_when_user_select_checkoutMovies_and_current_status_is_MainMenu_and_user_isLogin_status_is_false - 2016.08.02 at 20h 53m 57s.xml">
+      <configuration name="LibraryShellTest_2.should_display_Login_message_and_waiting_for_input_when_user_select_checkoutMovies_and_current_status_is_MainMenu_and_user_isLogin_status_is_false" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="LibraryShellTest_Should_display_main_menu_message_when_user_input_valid_message_and_current_status_is_returnBooks_and_continue_execution - 2016.08.02 at 20h 05m 38s.xml">
-      <configuration name="LibraryShellTest.Should_display_main_menu_message_when_user_input_valid_message_and_current_status_is_returnBooks_and_continue_execution" configurationId="JUnit" />
+    <history-entry file="LibraryShellTest_2_should_display_Login_message_and_waiting_for_input_when_user_select_checkoutMovies_and_current_status_is_MainMenu_and_user_isLogin_status_is_false - 2016.08.02 at 20h 54m 52s.xml">
+      <configuration name="LibraryShellTest_2.should_display_Login_message_and_waiting_for_input_when_user_select_checkoutMovies_and_current_status_is_MainMenu_and_user_isLogin_status_is_false" configurationId="JUnit" />
     </history-entry>
     <history-entry file="LibraryShellTest_Should_display_main_menu_message_when_user_input_valid_message_and_current_status_is_returnBooks_and_continue_execution - 2016.08.02 at 20h 30m 37s.xml">
       <configuration name="LibraryShellTest.Should_display_main_menu_message_when_user_input_valid_message_and_current_status_is_returnBooks_and_continue_execution" configurationId="JUnit" />
@@ -1075,14 +1075,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/twu/biblioteca/Router/ActionHandler/MainMenuActionHandler.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="598">
-          <caret line="76" column="34" selection-start-line="76" selection-start-column="34" selection-end-line="76" selection-end-column="34" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/test/com/twu/biblioteca/LibraryShellTest.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="358">
@@ -1103,10 +1095,18 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/twu/biblioteca/Router/ActionHandler/MainMenuActionHandler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="613">
+          <caret line="87" column="70" selection-start-line="87" selection-start-column="70" selection-end-line="87" selection-end-column="70" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/test/com/twu/biblioteca/LibraryShellTest_2.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="673">
-          <caret line="79" column="4" selection-start-line="79" selection-start-column="4" selection-end-line="79" selection-end-column="4" />
+        <state relative-caret-position="613">
+          <caret line="85" column="70" selection-start-line="85" selection-start-column="70" selection-end-line="85" selection-end-column="70" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

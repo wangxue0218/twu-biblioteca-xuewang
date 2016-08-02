@@ -75,6 +75,11 @@ public class MainMenuActionHandler implements IActionHandler {
             return new RouterMessage(false, getMovieDetails(), false);
         }
         if(userInput.equals("5")){
+            boolean isLogin = m_libraryService.getCurrentUser().getIsLogin();
+            if(!isLogin){
+                m_routerContext.setNextState(RouterState.LogIn);
+                return new RouterMessage(false, remindLoginMessage, true);
+            }
             m_routerContext.setNextState(RouterState.CheckoutMovie);
             return new RouterMessage(false, "", true);
         }
