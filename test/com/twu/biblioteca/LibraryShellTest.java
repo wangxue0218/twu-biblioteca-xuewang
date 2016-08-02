@@ -1,5 +1,6 @@
 package com.twu.biblioteca;
 
+import com.twu.biblioteca.Model.MainMenuMessage;
 import com.twu.biblioteca.Router.RouterMessage;
 import com.twu.biblioteca.Service.LibraryService;
 import com.twu.biblioteca.Router.LibraryRouter;
@@ -22,12 +23,7 @@ public class LibraryShellTest {
     @Test
     public void Should_display_main_menu_when_current_state_is_MainMenu(){
         LibraryRouter libraryRouter = new LibraryRouter(RouterState.MainMenu,new LibraryService());
-        String exceptResult = "********MainMenu************\n"
-                + "****************************\n"
-                + "1. List Books\n"
-                + "2. Checkout Books\n"
-                + "3. Return Books\n"
-                + "4. Quit\n";
+        String exceptResult = new MainMenuMessage().getMainMenu();
         RouterMessage routerMessage = libraryRouter.GetRouteMessage(null);
         String actualResult = routerMessage.getText();
         assertEquals(exceptResult,actualResult);
@@ -46,28 +42,18 @@ public class LibraryShellTest {
 
     @Test
     public void Should_display_invalid_message_when_user_input_is_not_List_Books_and_current_state_is_MainMenu(){
-        String mainMenuText = "********MainMenu************\n"
-                + "****************************\n"
-                + "1. List Books\n"
-                + "2. Checkout Books\n"
-                + "3. Return Books\n"
-                + "4. Quit\n";
+        String mainMenuText = new MainMenuMessage().getMainMenu();
         LibraryRouter libraryRouter = new LibraryRouter(RouterState.MainMenu, new LibraryService());
-        String actualResult = libraryRouter.GetRouteMessage("5").getText();
+        String actualResult = libraryRouter.GetRouteMessage("59").getText();
         String expectResult = "Select a valid option!\n";
         assertEquals(expectResult, actualResult);
     }
 
     @Test
     public void Should_display_main_menu_when_user_input_is_not_list_book_and_current_state_is_MainMenu_and_user_continue_exeution(){
-        String mainMenuText = "********MainMenu************\n"
-                + "****************************\n"
-                + "1. List Books\n"
-                + "2. Checkout Books\n"
-                + "3. Return Books\n"
-                + "4. Quit\n";
+        String mainMenuText = new MainMenuMessage().getMainMenu();
         LibraryRouter libraryRouter = new LibraryRouter(RouterState.MainMenu, new LibraryService());
-        libraryRouter.GetRouteMessage("5");
+        libraryRouter.GetRouteMessage("59");
         String actualResult = libraryRouter.GetRouteMessage(null).getText();
         assertEquals(mainMenuText,actualResult);
     }
@@ -75,7 +61,7 @@ public class LibraryShellTest {
     @Test
     public void Should_quit_when_user_input_is_Quit_and_current_state_is_MainMenu(){
         LibraryRouter libraryRouter = new LibraryRouter(RouterState.MainMenu, new LibraryService());
-        assertEquals(true, libraryRouter.GetRouteMessage("4").isExit());
+        assertEquals(true, libraryRouter.GetRouteMessage("0").isExit());
     }
 
     @Test
@@ -103,12 +89,7 @@ public class LibraryShellTest {
     }
     @Test
     public void Should_display_main_menu_message_when_user_input_valid_message_and_current_status_is_checkoutBooks_and_continue_execution(){
-        String mainMenuMessage = "********MainMenu************\n"
-                + "****************************\n"
-                + "1. List Books\n"
-                + "2. Checkout Books\n"
-                + "3. Return Books\n"
-                + "4. Quit\n";
+        String mainMenuMessage = new MainMenuMessage().getMainMenu();
         LibraryRouter libraryRouter = new LibraryRouter(RouterState.CheckOut, new LibraryService());
         libraryRouter.GetRouteMessage("Math");
         String actualMessage = libraryRouter.GetRouteMessage(null).getText();
@@ -125,12 +106,7 @@ public class LibraryShellTest {
 
     @Test
     public void Should_display_main_menu_message_when_user_input_Invalid_message_and_current_status_is_checkoutBooks_and_continue_execution(){
-        String mainMenuMessage = "********MainMenu************\n"
-                + "****************************\n"
-                + "1. List Books\n"
-                + "2. Checkout Books\n"
-                + "3. Return Books\n"
-                + "4. Quit\n";
+        String mainMenuMessage = new MainMenuMessage().getMainMenu();
         LibraryRouter libraryRouter = new LibraryRouter(RouterState.CheckOut, new LibraryService());
         libraryRouter.GetRouteMessage("hehe");
         String actualMessage = libraryRouter.GetRouteMessage(null).getText();
@@ -155,12 +131,7 @@ public class LibraryShellTest {
 
     @Test
     public void Should_display_main_menu_message_when_user_input_valid_message_and_current_status_is_returnBooks_and_continue_execution(){
-        String mainMenuMessage = "********MainMenu************\n"
-                + "****************************\n"
-                + "1. List Books\n"
-                + "2. Checkout Books\n"
-                + "3. Return Books\n"
-                + "4. Quit\n";
+        String mainMenuMessage = new MainMenuMessage().getMainMenu();
         LibraryService libraryService = new LibraryService();
         libraryService.checkoutBook("Math");
         LibraryRouter libraryRouter = new LibraryRouter(RouterState.Return, libraryService);
@@ -179,12 +150,7 @@ public class LibraryShellTest {
 
     @Test
     public void Should_display_main_menu_message_when_user_input_Invalid_message_and_current_status_is_returnBooks_and_continue_execution(){
-        String mainMenuMessage = "********MainMenu************\n"
-                + "****************************\n"
-                + "1. List Books\n"
-                + "2. Checkout Books\n"
-                + "3. Return Books\n"
-                + "4. Quit\n";
+        String mainMenuMessage = new MainMenuMessage().getMainMenu();
         LibraryRouter libraryRouter = new LibraryRouter(RouterState.Return, new LibraryService());
         libraryRouter.GetRouteMessage("hehe");
         String actualMessage = libraryRouter.GetRouteMessage(null).getText();

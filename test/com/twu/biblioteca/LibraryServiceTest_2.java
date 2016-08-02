@@ -18,6 +18,6 @@ public class LibraryServiceTest_2 {
         assertEquals("1990", libraryService.listMovies().get(1).getMovieYear());
         assertEquals("xuewang", libraryService.listMovies().get(1).getMovieDirector());
         assertEquals(8, libraryService.listMovies().get(1).getMovieRating());
-
     }
+
 }

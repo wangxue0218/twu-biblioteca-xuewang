@@ -1,5 +1,7 @@
 package com.twu.biblioteca.Router;
 
+import com.twu.biblioteca.Model.MainMenuMessage;
+import com.twu.biblioteca.Model.Movie;
 import com.twu.biblioteca.Service.LibraryService;
 import com.twu.biblioteca.Model.Book;
 
@@ -11,12 +13,7 @@ import java.util.ArrayList;
 public class MainMenuActionHandler implements IActionHandler {
     RouterContext m_routerContext;
     LibraryService m_libraryService;
-    private static String MainMenuText = "********MainMenu************\n"
-            + "****************************\n"
-            + "1. List Books\n"
-            + "2. Checkout Books\n"
-            + "3. Return Books\n"
-            + "4. Quit\n";
+    private static String MainMenuText = new MainMenuMessage().getMainMenu();
 
     public MainMenuActionHandler(RouterContext routerContext, LibraryService libraryService)
     {
@@ -31,6 +28,15 @@ public class MainMenuActionHandler implements IActionHandler {
             booksDetails += (unCheckBook.get(i).getBookName() + "," + unCheckBook.get(i).getBookAuthor() + "," + unCheckBook.get(i).getBookYear() + "\n");
         }
         return booksDetails;
+    }
+
+    public String getMovieDetails(){
+        ArrayList<Movie> movies = m_libraryService.listMovies();
+        String moviesDetails = "";
+        for(int i=0; i<movies.size(); i++){
+            moviesDetails += (movies.get(i).getMovieName()+","+movies.get(i).getMovieYear()+","+movies.get(i).getMovieDirector()+","+movies.get(i).getMovieRating()+"\n");
+        }
+        return moviesDetails;
     }
 
     @Override
@@ -50,8 +56,11 @@ public class MainMenuActionHandler implements IActionHandler {
             m_routerContext.setNextState(RouterState.Return);
             return new RouterMessage(false, "", true);
         }
-        if(userInput.equals("4")){
+        if(userInput.equals("0")){
             return new RouterMessage(true, "", false);
+        }
+        if(userInput.equals("4")){
+            return new RouterMessage(false, getMovieDetails(), false);
         }
         return new RouterMessage(false, "Select a valid option!\n", false);
     }
