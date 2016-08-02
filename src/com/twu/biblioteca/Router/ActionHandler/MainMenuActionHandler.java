@@ -43,28 +43,33 @@ public class MainMenuActionHandler implements IActionHandler {
     @Override
     public RouterMessage handle(String userInput)
     {
+        String remindLoginMessage = "Please input your library number and passward, and split with ','\n";
         if (userInput == null) {
             return new RouterMessage(false, MainMenuText, true);
+        }
+        if(userInput.equals("0")){
+            return new RouterMessage(true, "", false);
         }
         if (userInput.equals("1")) {
             return new RouterMessage(false, getBookDetails(), false);
         }
         if(userInput.equals("2")){
-            String message = "Please input your library number and passward, and split with ','\n";
             boolean isLogin = m_libraryService.getCurrentUser().getIsLogin();
             if(!isLogin){
                 m_routerContext.setNextState(RouterState.LogIn);
-                return new RouterMessage(false, message, true);
+                return new RouterMessage(false, remindLoginMessage, true);
             }
             m_routerContext.setNextState(RouterState.CheckoutBook);
             return new RouterMessage(false, "", true);
         }
         if(userInput.equals("3")){
+            boolean isLogin = m_libraryService.getCurrentUser().getIsLogin();
+            if(!isLogin){
+                m_routerContext.setNextState(RouterState.LogIn);
+                return new RouterMessage(false, remindLoginMessage, true);
+            }
             m_routerContext.setNextState(RouterState.Return);
             return new RouterMessage(false, "", true);
-        }
-        if(userInput.equals("0")){
-            return new RouterMessage(true, "", false);
         }
         if(userInput.equals("4")){
             return new RouterMessage(false, getMovieDetails(), false);
@@ -74,9 +79,8 @@ public class MainMenuActionHandler implements IActionHandler {
             return new RouterMessage(false, "", true);
         }
         if(userInput.equals("6")){
-            String message = "Please input your library number and passward, and split with ','\n";
             m_routerContext.setNextState(RouterState.LogIn);
-            return new RouterMessage(false, message, true);
+            return new RouterMessage(false, remindLoginMessage, true);
         }
         return new RouterMessage(false, "Select a valid option!\n", false);
     }
