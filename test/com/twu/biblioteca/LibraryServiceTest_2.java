@@ -1,5 +1,6 @@
 package com.twu.biblioteca;
 
+import com.twu.biblioteca.Model.User;
 import com.twu.biblioteca.Service.LibraryService;
 import org.junit.Test;
 
@@ -53,5 +54,23 @@ public class LibraryServiceTest_2 {
         LibraryService libraryService = new LibraryService();
         boolean isLogin = libraryService.isLogIn("123-4567,000");
         assertEquals(false, isLogin);
+    }
+
+    @Test
+    public void should_return_true_when_user_input_valid_name_and_the_library_number_of_this_book_is_current_user_id(){
+        LibraryService libraryService = new LibraryService();
+        libraryService.setCurrentUser(new User("123-4567", "111"));
+        libraryService.checkoutBook("Math");
+        assertEquals(true, libraryService.returnBook("Math"));
+    }
+
+    @Test
+    public void should_return_false_when_user_input_valid_name_and_the_library_number_of_this_book_is_not_current_user_id(){
+        LibraryService libraryService = new LibraryService();
+        libraryService.setCurrentUser(new User("123-4567", "111"));
+        libraryService.checkoutBook("Math");
+        libraryService.setCurrentUser(new User("000-5678", "222"));
+        boolean result = libraryService.returnBook("Math");
+        assertEquals(false, result);
     }
 }

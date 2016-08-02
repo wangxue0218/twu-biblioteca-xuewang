@@ -32,6 +32,10 @@ public class LibraryService {
 
     private User currentUser;
 
+    public void setCurrentUser(User user){
+        currentUser = user;
+    }
+
     public User getCurrentUser(){
         return currentUser;
     }
