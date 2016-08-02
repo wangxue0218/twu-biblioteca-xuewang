@@ -88,4 +88,20 @@ public class LibraryShellTest_2 {
         assertEquals(true, routerMessage.isWaitFroInput());
     }
 
+    @Test
+    public void should_display_MainMenu_not_contains_UserInformation_option_when_user_is_not_login_execute(){
+        LibraryRouter libraryRouter = new LibraryRouter(RouterState.MainMenu,new LibraryService());
+        String expectMainMenu = new MainMenuMessage().getMainMenu();
+        assertEquals(expectMainMenu, libraryRouter.getRouteMessage(null).getText());
+    }
+
+    @Test
+    public void should_display_MainMenu_contains_UserInformation_option_when_current_status_is_login_and_user_login_success_and_execute_getRouteMessage(){
+        LibraryRouter libraryRouter = new LibraryRouter(RouterState.LogIn,new LibraryService());
+        String expectMainMenu = new MainMenuMessage().getMainMenu() + "7. UserInformation\n";
+        libraryRouter.getRouteMessage("123-4567,111");
+        String actualMainMenu = libraryRouter.getRouteMessage(null).getText();
+        assertEquals(expectMainMenu, actualMainMenu);
+    }
+
 }

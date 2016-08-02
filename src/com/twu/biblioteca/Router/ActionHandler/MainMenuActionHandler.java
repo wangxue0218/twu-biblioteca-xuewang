@@ -45,6 +45,10 @@ public class MainMenuActionHandler implements IActionHandler {
     {
         String remindLoginMessage = "LogIn :Please input your library number and passward, and split with ','\n";
         if (userInput == null) {
+            boolean isLogin = m_libraryService.getCurrentUser().getIsLogin();
+            if(isLogin){
+                MainMenuText = new MainMenuMessage().getMainMenu() + "7. UserInformation\n";
+            }
             return new RouterMessage(false, MainMenuText, true);
         }
         if(userInput.equals("0")){

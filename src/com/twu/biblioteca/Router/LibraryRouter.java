@@ -31,10 +31,10 @@ public class LibraryRouter {
                 return new CheckoutBookActionHandler(m_routerContext, m_libraryService);
             case CheckoutMovie:
                 return new CheckoutMovieActionHandler(m_routerContext, m_libraryService);
-            case LogIn:
-                return new LogInActionHandler(m_routerContext, m_libraryService);
             case Return:
                 return new ReturnActionHandler(m_routerContext, m_libraryService);
+            case LogIn:
+                return new LogInActionHandler(m_routerContext, m_libraryService);
             default:
                 throw new NotImplementedException();
         }

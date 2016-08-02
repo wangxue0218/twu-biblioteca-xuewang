@@ -13,7 +13,6 @@ public class MainMenuMessage {
                 + "3. Return Books\n"
                 + "4. List Movies\n"
                 + "5. Checkout Movies\n"
-                + "6. Log In\n"
-                + "7. User Information\n";
+                + "6. Log In\n";
     }
 }
