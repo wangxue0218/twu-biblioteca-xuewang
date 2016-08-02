@@ -21,5 +21,12 @@ public class LibraryShellTest_2 {
         assertEquals(expectResult,actualResult);
     }
 
-    
+    @Test
+    public void should_display_MainMenu_when_current_status_is_MainMenu_and_user_select_ListMovies_and_continue_execute_GetRouteMessage_method(){
+        String mainMenuText = new MainMenuMessage().getMainMenu();
+        LibraryRouter libraryRouter = new LibraryRouter(RouterState.MainMenu, new LibraryService());
+        libraryRouter.GetRouteMessage("4");
+        String actualResult = libraryRouter.GetRouteMessage(null).getText();
+        assertEquals(mainMenuText,actualResult);
+    }
 }
