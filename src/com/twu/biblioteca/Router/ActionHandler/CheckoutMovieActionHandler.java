@@ -19,6 +19,6 @@ public class CheckoutMovieActionHandler implements IActionHandler {
     public RouterMessage handle(String userInput) {
         boolean checkoutSuccess = m_libraryService.checkoutBook(userInput);
         m_routerContext.setNextState(RouterState.MainMenu);
-        return new RouterMessage(false, null, false);
+        return new RouterMessage(false, "", false);
     }
 }

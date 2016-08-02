@@ -25,8 +25,8 @@ public class LibraryService {
 
     private ArrayList<User> allUsers = new ArrayList<User>(){
         {
-            add(new User("123-4567", "111"));
-            add(new User("000-5678", "222"));
+            add(new User("123-4567", "111", false, "xue", "henan", "123456"));
+            add(new User("000-5678", "222", false, "xuexue", "henan", "123456"));
         }
     };
 
@@ -102,5 +102,15 @@ public class LibraryService {
             }
         }
         return false;
+    }
+
+    public User getUserInformation() {
+        if(currentUser.getIsLogin()){
+            for(int i=0; i< allUsers.size(); i++){
+                if(currentUser.getLibraryNumber().equals(allUsers.get(i).getLibraryNumber()))
+                    return allUsers.get(i);
+            }
+        }
+        return null;
     }
 }

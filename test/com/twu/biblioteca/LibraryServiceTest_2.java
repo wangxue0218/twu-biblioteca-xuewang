@@ -74,5 +74,14 @@ public class LibraryServiceTest_2 {
         assertEquals(false, result);
     }
 
+    @Test
+    public void should_return_user_information_with_name_emailAdress_phoneNumber_when_call_getUserInformation_method_when_current_user_Login(){
+        LibraryService libraryService = new LibraryService();
+        libraryService.setCurrentUser(new User("000-5678", "222", true));
+        User currUser = libraryService.getUserInformation();
+        assertEquals("xuexue",currUser.getUserName());
+        assertEquals("henan", currUser.getUserAdress());
+        assertEquals("123456",currUser.getPhoneNumber());
 
+    }
 }

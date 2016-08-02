@@ -47,7 +47,7 @@ public class LibraryShellTest_2 {
     public void should_display_Login_message_and_waiting_for_input_when_user_select_Login_and_current_status_is_MainMenu(){
        LibraryRouter libraryRouter = new LibraryRouter(RouterState.MainMenu,new LibraryService());
        RouterMessage routerMessage = libraryRouter.getRouteMessage("6");
-       String expectMessage = "Please input your library number and passward, and split with ','\n";
+       String expectMessage = "LogIn :Please input your library number and passward, and split with ','\n";
        assertEquals(expectMessage, routerMessage.getText());
        assertEquals(true, routerMessage.isWaitFroInput());
    }
@@ -87,4 +87,5 @@ public class LibraryShellTest_2 {
         assertEquals(loginMessage, routerMessage.getText());
         assertEquals(true, routerMessage.isWaitFroInput());
     }
+
 }

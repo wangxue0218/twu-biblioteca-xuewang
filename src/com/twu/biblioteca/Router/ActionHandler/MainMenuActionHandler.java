@@ -43,7 +43,7 @@ public class MainMenuActionHandler implements IActionHandler {
     @Override
     public RouterMessage handle(String userInput)
     {
-        String remindLoginMessage = "Please input your library number and passward, and split with ','\n";
+        String remindLoginMessage = "LogIn :Please input your library number and passward, and split with ','\n";
         if (userInput == null) {
             return new RouterMessage(false, MainMenuText, true);
         }
