@@ -42,7 +42,14 @@ public class LibraryServiceTest_2 {
     }
 
     @Test
-    public void should_return_fasle_when_user_input_valid_user_name_and_password(){
+    public void should_return_false_when_user_input_Invalid_user_name_and_password(){
+        LibraryService libraryService = new LibraryService();
+        boolean isLogin = libraryService.isLogIn("hsb-ncue,111");
+        assertEquals(false, isLogin);
+    }
+
+    @Test
+    public void should_return_fasle_when_user_input_valid_user_name_and_wrong_password(){
         LibraryService libraryService = new LibraryService();
         boolean isLogin = libraryService.isLogIn("123-4567,000");
         assertEquals(false, isLogin);
