@@ -2,23 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="41d0c778-88b7-4b84-ba59-dc857fd905dc" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/biblioteca/com/twu/biblioteca/Router/CheckoutBookActionHandler.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/biblioteca/com/twu/biblioteca/Router/CheckoutMovieActionHandler.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/biblioteca/com/twu/biblioteca/Router/IActionHandler.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/biblioteca/com/twu/biblioteca/Router/InitializeActionHandler.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/biblioteca/com/twu/biblioteca/Router/MainMenuActionHandler.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/biblioteca/com/twu/biblioteca/Router/ReturnActionHandler.class" afterPath="" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/com/twu/biblioteca/Router/CheckoutBookActionHandler.java" afterPath="$PROJECT_DIR$/src/com/twu/biblioteca/Router/ActionHandler/CheckoutBookActionHandler.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/com/twu/biblioteca/Router/CheckoutMovieActionHandler.java" afterPath="$PROJECT_DIR$/src/com/twu/biblioteca/Router/ActionHandler/CheckoutMovieActionHandler.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/com/twu/biblioteca/Router/IActionHandler.java" afterPath="$PROJECT_DIR$/src/com/twu/biblioteca/Router/ActionHandler/IActionHandler.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/com/twu/biblioteca/Router/InitializeActionHandler.java" afterPath="$PROJECT_DIR$/src/com/twu/biblioteca/Router/ActionHandler/InitializeActionHandler.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/com/twu/biblioteca/Router/MainMenuActionHandler.java" afterPath="$PROJECT_DIR$/src/com/twu/biblioteca/Router/ActionHandler/MainMenuActionHandler.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/com/twu/biblioteca/Router/ReturnActionHandler.java" afterPath="$PROJECT_DIR$/src/com/twu/biblioteca/Router/ActionHandler/ReturnActionHandler.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/twu/biblioteca/Model/Book.java" afterPath="$PROJECT_DIR$/src/com/twu/biblioteca/Model/Book.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/twu/biblioteca/Router/LibraryRouter.java" afterPath="$PROJECT_DIR$/src/com/twu/biblioteca/Router/LibraryRouter.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/twu/biblioteca/Router/RouterState.java" afterPath="$PROJECT_DIR$/src/com/twu/biblioteca/Router/RouterState.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/twu/biblioteca/Service/LibraryService.java" afterPath="$PROJECT_DIR$/src/com/twu/biblioteca/Service/LibraryService.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/com/twu/biblioteca/LibraryServiceTest_2.java" afterPath="$PROJECT_DIR$/test/com/twu/biblioteca/LibraryServiceTest_2.java" />
     </list>
     <ignored path="biblioteca.iws" />
@@ -124,8 +107,8 @@
       <file leaf-file-name="LibraryServiceTest_2.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/test/com/twu/biblioteca/LibraryServiceTest_2.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="600">
-              <caret line="40" column="36" selection-start-line="40" selection-start-column="36" selection-end-line="40" selection-end-column="36" />
+            <state relative-caret-position="643">
+              <caret line="47" column="26" selection-start-line="47" selection-start-column="26" selection-end-line="47" selection-end-column="26" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -423,33 +406,7 @@
       <recent name="com.twu.biblioteca" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.LibraryServiceTest_2.should_return_true_when_user_input_valid_user_name_and_password">
-    <configuration default="false" name="LibraryServiceTest_2.should_return_true_when_user_input_valid_movie_name" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
-        <pattern>
-          <option name="PATTERN" value="com.twu.biblioteca.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <module name="biblioteca" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PACKAGE_NAME" value="com.twu.biblioteca" />
-      <option name="MAIN_CLASS_NAME" value="com.twu.biblioteca.LibraryServiceTest_2" />
-      <option name="METHOD_NAME" value="should_return_true_when_user_input_valid_movie_name" />
-      <option name="TEST_OBJECT" value="method" />
-      <option name="VM_PARAMETERS" value="-ea" />
-      <option name="PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="singleModule" />
-      </option>
-      <envs />
-      <patterns />
-      <method />
-    </configuration>
+  <component name="RunManager" selected="JUnit.LibraryServiceTest_2.should_return_fasle_when_user_input_valid_user_name_and_password">
     <configuration default="false" name="LibraryServiceTest_2.should_return_false_when_usar_input_Invalid_movie_name" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
         <pattern>
@@ -541,6 +498,32 @@
       <option name="PACKAGE_NAME" value="com.twu.biblioteca" />
       <option name="MAIN_CLASS_NAME" value="com.twu.biblioteca.LibraryServiceTest_2" />
       <option name="METHOD_NAME" value="should_return_true_when_user_input_valid_user_name_and_password" />
+      <option name="TEST_OBJECT" value="method" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <envs />
+      <patterns />
+      <method />
+    </configuration>
+    <configuration default="false" name="LibraryServiceTest_2.should_return_fasle_when_user_input_valid_user_name_and_password" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+        <pattern>
+          <option name="PATTERN" value="com.twu.biblioteca.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <module name="biblioteca" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" value="com.twu.biblioteca" />
+      <option name="MAIN_CLASS_NAME" value="com.twu.biblioteca.LibraryServiceTest_2" />
+      <option name="METHOD_NAME" value="should_return_fasle_when_user_input_valid_user_name_and_password" />
       <option name="TEST_OBJECT" value="method" />
       <option name="VM_PARAMETERS" value="-ea" />
       <option name="PARAMETERS" />
@@ -799,19 +782,19 @@
       <method />
     </configuration>
     <list size="5">
-      <item index="0" class="java.lang.String" itemvalue="JUnit.LibraryServiceTest_2.should_return_true_when_user_input_valid_movie_name" />
-      <item index="1" class="java.lang.String" itemvalue="JUnit.LibraryServiceTest_2.should_return_false_when_usar_input_Invalid_movie_name" />
-      <item index="2" class="java.lang.String" itemvalue="JUnit.LibraryShellTest_2.should_waiting_for_user_input_when_current_status_is_MainMenu_and_user_select_CheckoutMovies" />
-      <item index="3" class="java.lang.String" itemvalue="JUnit.LibraryShellTest_2.should_display_MainMenu_when_current_status_is_CheckoutMovie_and_user_input_movie_name_and_continue_execute_getRouteMessage_method" />
-      <item index="4" class="java.lang.String" itemvalue="JUnit.LibraryServiceTest_2.should_return_true_when_user_input_valid_user_name_and_password" />
+      <item index="0" class="java.lang.String" itemvalue="JUnit.LibraryServiceTest_2.should_return_false_when_usar_input_Invalid_movie_name" />
+      <item index="1" class="java.lang.String" itemvalue="JUnit.LibraryShellTest_2.should_waiting_for_user_input_when_current_status_is_MainMenu_and_user_select_CheckoutMovies" />
+      <item index="2" class="java.lang.String" itemvalue="JUnit.LibraryShellTest_2.should_display_MainMenu_when_current_status_is_CheckoutMovie_and_user_input_movie_name_and_continue_execute_getRouteMessage_method" />
+      <item index="3" class="java.lang.String" itemvalue="JUnit.LibraryServiceTest_2.should_return_true_when_user_input_valid_user_name_and_password" />
+      <item index="4" class="java.lang.String" itemvalue="JUnit.LibraryServiceTest_2.should_return_fasle_when_user_input_valid_user_name_and_password" />
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="JUnit.LibraryServiceTest_2.should_return_true_when_user_input_valid_user_name_and_password" />
-        <item index="1" class="java.lang.String" itemvalue="JUnit.LibraryShellTest_2.should_display_MainMenu_when_current_status_is_CheckoutMovie_and_user_input_movie_name_and_continue_execute_getRouteMessage_method" />
-        <item index="2" class="java.lang.String" itemvalue="JUnit.LibraryShellTest_2.should_waiting_for_user_input_when_current_status_is_MainMenu_and_user_select_CheckoutMovies" />
-        <item index="3" class="java.lang.String" itemvalue="JUnit.LibraryServiceTest_2.should_return_false_when_usar_input_Invalid_movie_name" />
-        <item index="4" class="java.lang.String" itemvalue="JUnit.LibraryServiceTest_2.should_return_true_when_user_input_valid_movie_name" />
+        <item index="0" class="java.lang.String" itemvalue="JUnit.LibraryServiceTest_2.should_return_fasle_when_user_input_valid_user_name_and_password" />
+        <item index="1" class="java.lang.String" itemvalue="JUnit.LibraryServiceTest_2.should_return_true_when_user_input_valid_user_name_and_password" />
+        <item index="2" class="java.lang.String" itemvalue="JUnit.LibraryShellTest_2.should_display_MainMenu_when_current_status_is_CheckoutMovie_and_user_input_movie_name_and_continue_execute_getRouteMessage_method" />
+        <item index="3" class="java.lang.String" itemvalue="JUnit.LibraryShellTest_2.should_waiting_for_user_input_when_current_status_is_MainMenu_and_user_select_CheckoutMovies" />
+        <item index="4" class="java.lang.String" itemvalue="JUnit.LibraryServiceTest_2.should_return_false_when_usar_input_Invalid_movie_name" />
       </list>
     </recent_temporary>
   </component>
@@ -832,8 +815,8 @@
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="LibraryServiceTest_2_should_return_false_when_usar_input_Invalid_movie_name - 2016.08.02 at 16h 44m 12s.xml">
-      <configuration name="LibraryServiceTest_2.should_return_false_when_usar_input_Invalid_movie_name" configurationId="JUnit" />
+    <history-entry file="LibraryServiceTest_2_should_return_fasle_when_user_input_valid_user_name_and_password - 2016.08.02 at 18h 40m 17s.xml">
+      <configuration name="LibraryServiceTest_2.should_return_fasle_when_user_input_valid_user_name_and_password" configurationId="JUnit" />
     </history-entry>
     <history-entry file="LibraryServiceTest_2_should_return_true_when_user_input_valid_user_name_and_password - 2016.08.02 at 18h 35m 21s.xml">
       <configuration name="LibraryServiceTest_2.should_return_true_when_user_input_valid_user_name_and_password" configurationId="JUnit" />
@@ -1195,8 +1178,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/test/com/twu/biblioteca/LibraryServiceTest_2.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="600">
-          <caret line="40" column="36" selection-start-line="40" selection-start-column="36" selection-end-line="40" selection-end-column="36" />
+        <state relative-caret-position="643">
+          <caret line="47" column="26" selection-start-line="47" selection-start-column="26" selection-end-line="47" selection-end-column="26" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
