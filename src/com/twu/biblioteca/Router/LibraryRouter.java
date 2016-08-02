@@ -26,8 +26,10 @@ public class LibraryRouter {
                 return new InitializeActionHandler(m_routerContext, m_libraryService);
             case MainMenu:
                 return new MainMenuActionHandler(m_routerContext, m_libraryService);
-            case CheckOut:
-                return new CheckoutActionHandler(m_routerContext, m_libraryService);
+            case CheckoutBook:
+                return new CheckoutBookActionHandler(m_routerContext, m_libraryService);
+            case CheckoutMovie:
+                return new CheckoutMovieActionHandler(m_routerContext, m_libraryService);
             case Return:
                 return new ReturnActionHandler(m_routerContext, m_libraryService);
             default:

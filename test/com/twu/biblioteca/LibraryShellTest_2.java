@@ -30,5 +30,12 @@ public class LibraryShellTest_2 {
         assertEquals(mainMenuText,actualResult);
     }
 
+    @Test
+    public void should_waiting_for_user_input_when_current_status_is_MainMenu_and_user_select_CheckoutMovies(){
+        LibraryRouter libraryRouter = new LibraryRouter(RouterState.MainMenu,new LibraryService());
+        assertEquals(true, libraryRouter.GetRouteMessage("5").isWaitFroInput());
+    }
+
+   
 
 }

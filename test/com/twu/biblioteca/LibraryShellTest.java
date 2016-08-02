@@ -82,7 +82,7 @@ public class LibraryShellTest {
 
     @Test
     public void Should_dispaly_success_message_when_user_input_valid_book_name_and_current_status_is_checkoutBook(){
-        LibraryRouter libraryRouter = new LibraryRouter(RouterState.CheckOut, new LibraryService());
+        LibraryRouter libraryRouter = new LibraryRouter(RouterState.CheckoutBook, new LibraryService());
         String expectMessage = "Thank you! Enjoy the book.\n";
         String actualMessage = libraryRouter.GetRouteMessage("Math").getText();
         assertEquals(expectMessage, actualMessage);
@@ -90,7 +90,7 @@ public class LibraryShellTest {
     @Test
     public void Should_display_main_menu_message_when_user_input_valid_message_and_current_status_is_checkoutBooks_and_continue_execution(){
         String mainMenuMessage = new MainMenuMessage().getMainMenu();
-        LibraryRouter libraryRouter = new LibraryRouter(RouterState.CheckOut, new LibraryService());
+        LibraryRouter libraryRouter = new LibraryRouter(RouterState.CheckoutBook, new LibraryService());
         libraryRouter.GetRouteMessage("Math");
         String actualMessage = libraryRouter.GetRouteMessage(null).getText();
         assertEquals(mainMenuMessage, actualMessage);
@@ -98,7 +98,7 @@ public class LibraryShellTest {
 
     @Test
     public void Should_dispaly_unsuccess_message_when_user_input_valid_book_name_and_current_status_is_checkoutBook(){
-        LibraryRouter libraryRouter = new LibraryRouter(RouterState.CheckOut, new LibraryService());
+        LibraryRouter libraryRouter = new LibraryRouter(RouterState.CheckoutBook, new LibraryService());
         String expectMessage = "That book is not available.\n";
         String actualMessage = libraryRouter.GetRouteMessage("hehe").getText();
         assertEquals(expectMessage, actualMessage);
@@ -107,7 +107,7 @@ public class LibraryShellTest {
     @Test
     public void Should_display_main_menu_message_when_user_input_Invalid_message_and_current_status_is_checkoutBooks_and_continue_execution(){
         String mainMenuMessage = new MainMenuMessage().getMainMenu();
-        LibraryRouter libraryRouter = new LibraryRouter(RouterState.CheckOut, new LibraryService());
+        LibraryRouter libraryRouter = new LibraryRouter(RouterState.CheckoutBook, new LibraryService());
         libraryRouter.GetRouteMessage("hehe");
         String actualMessage = libraryRouter.GetRouteMessage(null).getText();
         assertEquals(mainMenuMessage, actualMessage);

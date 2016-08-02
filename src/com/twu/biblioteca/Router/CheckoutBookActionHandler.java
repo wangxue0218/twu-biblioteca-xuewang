@@ -5,11 +5,11 @@ import com.twu.biblioteca.Service.LibraryService;
 /**
  * Created by xuewang on 8/1/16.
  */
-public class CheckoutActionHandler implements IActionHandler {
+public class CheckoutBookActionHandler implements IActionHandler {
     RouterContext m_routerContext;
     LibraryService m_libraryService;
 
-    public CheckoutActionHandler(RouterContext routerContext, LibraryService libraryService)
+    public CheckoutBookActionHandler(RouterContext routerContext, LibraryService libraryService)
     {
         m_routerContext = routerContext;
         m_libraryService = libraryService;

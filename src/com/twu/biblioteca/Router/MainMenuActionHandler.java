@@ -49,7 +49,7 @@ public class MainMenuActionHandler implements IActionHandler {
             return new RouterMessage(false, getBookDetails(), false);
         }
         if(userInput.equals("2")){
-            m_routerContext.setNextState(RouterState.CheckOut);
+            m_routerContext.setNextState(RouterState.CheckoutBook);
             return new RouterMessage(false, "", true);
         }
         if(userInput.equals("3")){
@@ -61,6 +61,10 @@ public class MainMenuActionHandler implements IActionHandler {
         }
         if(userInput.equals("4")){
             return new RouterMessage(false, getMovieDetails(), false);
+        }
+        if(userInput.equals("5")){
+            m_routerContext.setNextState(RouterState.CheckoutMovie);
+            return new RouterMessage(false, "", true);
         }
         return new RouterMessage(false, "Select a valid option!\n", false);
     }

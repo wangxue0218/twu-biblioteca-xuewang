@@ -5,6 +5,7 @@ public enum RouterState
 {
     Initialize,
     MainMenu,
-    CheckOut,
-    Return
+    CheckoutBook,
+    Return,
+    CheckoutMovie
 }
