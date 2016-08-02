@@ -10,7 +10,7 @@ public class LibraryServiceTest {
     @Test
     public void Should_get_welcome_message_when_calling_getWelcomeMessage_method(){
         LibraryService libraryService = new LibraryService();
-        String welcomMessage = libraryService.GetWelcomeMessage();
+        String welcomMessage = libraryService.getWelcomeMessage();
         String actualWelcomMessage = "*****Welcom to TWU Library!*****\n\n";
         assertEquals(actualWelcomMessage, welcomMessage);
     }
@@ -34,51 +34,51 @@ public class LibraryServiceTest {
     @Test
     public void Should_return_true_when_call_checkoutBook_if_the_book_has_not_checked_out_and_exists(){
         LibraryService libraryService = new LibraryService();
-        boolean isChecked = libraryService.CheckoutBook("Math");
+        boolean isChecked = libraryService.checkoutBook("Math");
         assertEquals(true, isChecked);
     }
 
     @Test
     public void Should_return_false_when_call_checkoutBook_if_the_book_has_been_checked_or_not_exist(){
         LibraryService libraryService = new LibraryService();
-        boolean isChecked = libraryService.CheckoutBook("hehe");
+        boolean isChecked = libraryService.checkoutBook("hehe");
         assertEquals(false, isChecked);
     }
 
     @Test
     public void Should_return_books_that_are_not_checked_out_when_calling_listBooks(){
         LibraryService libraryService = new LibraryService();
-        libraryService.CheckoutBook("Math");
+        libraryService.checkoutBook("Math");
         assertEquals(2, libraryService.ListBooks().size());
         assertEquals("English", libraryService.ListBooks().get(0).getBookName());
         assertEquals("History", libraryService.ListBooks().get(1).getBookName());
-        libraryService.CheckoutBook("English");
+        libraryService.checkoutBook("English");
         assertEquals("History",libraryService.ListBooks().get(0).getBookName());
     }
     @Test
     public void Should_return_true_when_call_returnBook_if_the_book_has_been_checked_out(){
         LibraryService libraryService = new LibraryService();
-        libraryService.CheckoutBook("Math");
-        boolean isReturned = libraryService.ReturnBook("Math");
+        libraryService.checkoutBook("Math");
+        boolean isReturned = libraryService.returnBook("Math");
         assertEquals(true, isReturned);
     }
 
     @Test
     public void Should_return_false_when_call_returnBook_if_the_book_has_been_checked_out(){
         LibraryService libraryService = new LibraryService();
-        libraryService.CheckoutBook("Math");
-        boolean isReturned = libraryService.ReturnBook("English");
+        libraryService.checkoutBook("Math");
+        boolean isReturned = libraryService.returnBook("English");
         assertEquals(false, isReturned);
     }
 
     @Test
     public void Should_return_books_that_are_not_returned_when_calling_listBooks(){
         LibraryService libraryService = new LibraryService();
-        libraryService.CheckoutBook("Math");
+        libraryService.checkoutBook("Math");
         assertEquals(2, libraryService.ListBooks().size());
         assertEquals("English", libraryService.ListBooks().get(0).getBookName());
         assertEquals("History", libraryService.ListBooks().get(1).getBookName());
-        libraryService.ReturnBook("Math");
+        libraryService.returnBook("Math");
         assertEquals(3, libraryService.ListBooks().size());
         assertEquals("Math", libraryService.ListBooks().get(0).getBookName());
         assertEquals("English", libraryService.ListBooks().get(1).getBookName());

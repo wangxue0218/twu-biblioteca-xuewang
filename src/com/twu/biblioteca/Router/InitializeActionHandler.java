@@ -15,9 +15,9 @@ public class InitializeActionHandler implements IActionHandler {
     }
 
     @Override
-    public RouterMessage Handle(String userInput) {
-        String welcomeMessage = m_libraryService.GetWelcomeMessage();
-        m_routerContext.SetNextState(RouterState.MainMenu);
+    public RouterMessage handle(String userInput) {
+        String welcomeMessage = m_libraryService.getWelcomeMessage();
+        m_routerContext.setNextState(RouterState.MainMenu);
         return new RouterMessage(false, welcomeMessage, false);
     }
 }

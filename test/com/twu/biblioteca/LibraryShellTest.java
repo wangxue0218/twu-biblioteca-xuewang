@@ -87,7 +87,7 @@ public class LibraryShellTest {
     @Test
     public void Should_return_books_without_checked_out_book_when_current_status_is_MainMenu_and_user_select_list_books(){
         LibraryService libraryService = new LibraryService();
-        libraryService.CheckoutBook("Math");
+        libraryService.checkoutBook("Math");
         LibraryRouter libraryRouter = new LibraryRouter(RouterState.MainMenu, libraryService);
         String actualListBooks = libraryRouter.GetRouteMessage("1").getText();
         String expectListBooks = "English,David,1889-09-20\n" + "History,Bob,1990-01-28\n";
@@ -146,7 +146,7 @@ public class LibraryShellTest {
     @Test
     public void Should_dispaly_success_message_when_user_input_valid_book_name_and_current_status_is_returnBook(){
         LibraryService libraryService = new LibraryService();
-        libraryService.CheckoutBook("Math");
+        libraryService.checkoutBook("Math");
         LibraryRouter libraryRouter = new LibraryRouter(RouterState.Return, libraryService);
         String expectMessage = "Thank you for returning the book.\n";
         String actualMessage = libraryRouter.GetRouteMessage("Math").getText();
@@ -162,7 +162,7 @@ public class LibraryShellTest {
                 + "3. Return Books\n"
                 + "4. Quit\n";
         LibraryService libraryService = new LibraryService();
-        libraryService.CheckoutBook("Math");
+        libraryService.checkoutBook("Math");
         LibraryRouter libraryRouter = new LibraryRouter(RouterState.Return, libraryService);
         libraryRouter.GetRouteMessage("Math");
         String actualMessage = libraryRouter.GetRouteMessage(null).getText();

@@ -24,7 +24,7 @@ public class MainMenuActionHandler implements IActionHandler {
         m_libraryService = libraryService;
     }
 
-    public String GetBookDetails(){
+    public String getBookDetails(){
         ArrayList<Book> unCheckBook = m_libraryService.ListBooks();
         String booksDetails = "";
         for(int i=0; i<unCheckBook.size(); i++){
@@ -34,25 +34,25 @@ public class MainMenuActionHandler implements IActionHandler {
     }
 
     @Override
-    public RouterMessage Handle(String userInput)
+    public RouterMessage handle(String userInput)
     {
         if (userInput == null) {
             return new RouterMessage(false, MainMenuText, true);
         }
         if (userInput.equals("1")) {
-            return new RouterMessage(false, GetBookDetails(), false);
+            return new RouterMessage(false, getBookDetails(), false);
         }
         if(userInput.equals("2")){
-            m_routerContext.SetNextState(RouterState.CheckOut);
+            m_routerContext.setNextState(RouterState.CheckOut);
             return new RouterMessage(false, "", true);
         }
         if(userInput.equals("3")){
-            m_routerContext.SetNextState(RouterState.Return);
+            m_routerContext.setNextState(RouterState.Return);
             return new RouterMessage(false, "", true);
         }
         if(userInput.equals("4")){
             return new RouterMessage(true, "", false);
         }
-        return new RouterMessage(false, "Select a valid option!\n", true);
+        return new RouterMessage(false, "Select a valid option!\n", false);
     }
 }

@@ -15,9 +15,9 @@ public class CheckoutActionHandler implements IActionHandler {
         m_libraryService = libraryService;
     }
     @Override
-    public RouterMessage Handle(String userInput) {
-        boolean checkoutSuccess = m_libraryService.CheckoutBook(userInput);
-        m_routerContext.SetNextState(RouterState.MainMenu);
+    public RouterMessage handle(String userInput) {
+        boolean checkoutSuccess = m_libraryService.checkoutBook(userInput);
+        m_routerContext.setNextState(RouterState.MainMenu);
         if (checkoutSuccess)
         {
             return new RouterMessage(false, "Thank you! Enjoy the book.\n", false);

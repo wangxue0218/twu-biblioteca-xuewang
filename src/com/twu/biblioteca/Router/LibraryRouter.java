@@ -15,12 +15,12 @@ public class LibraryRouter {
     }
 
     public RouterMessage GetRouteMessage(String userInput){
-        return GetActionHandler().Handle(userInput);
+        return getActionHandler().handle(userInput);
 
     }
-    IActionHandler GetActionHandler()
+    IActionHandler getActionHandler()
     {
-        switch (m_routerContext.GetCurrentState())
+        switch (m_routerContext.getCurrentState())
         {
             case Initialize:
                 return new InitializeActionHandler(m_routerContext, m_libraryService);

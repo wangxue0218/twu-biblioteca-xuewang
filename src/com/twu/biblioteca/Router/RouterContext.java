@@ -12,12 +12,12 @@ public class RouterContext
         m_currentState = currentState;
     }
 
-    public void SetNextState(RouterState state)
+    public void setNextState(RouterState state)
     {
         m_currentState = state;
     }
 
-    public RouterState GetCurrentState(){
+    public RouterState getCurrentState(){
         return m_currentState;
     }
 }

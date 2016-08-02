@@ -13,7 +13,7 @@ public class LibraryService {
         }
     };
 
-    public String GetWelcomeMessage(){
+    public String getWelcomeMessage(){
 
         String welcomeMessage = "*****Welcom to TWU Library!*****\n\n";
         return welcomeMessage;
@@ -27,7 +27,7 @@ public class LibraryService {
         }
         return unCheckBookList;
     }
-    public boolean CheckoutBook(String name){
+    public boolean checkoutBook(String name){
         if(name == null || name.isEmpty()){
             return false;
         }
@@ -43,7 +43,7 @@ public class LibraryService {
         return true;
     }
 
-    public boolean ReturnBook(String name){
+    public boolean returnBook(String name){
         int i;
         for(i=0; i<allBooks.size(); i++){
             if(allBooks.get(i).getBookName().equals(name)&& allBooks.get(i).getStatus()){
