@@ -2,6 +2,7 @@ package com.twu.biblioteca.Service;
 
 import com.twu.biblioteca.Model.Book;
 import com.twu.biblioteca.Model.Movie;
+import com.twu.biblioteca.Model.User;
 
 import java.util.ArrayList;
 
@@ -13,6 +14,7 @@ public class LibraryService {
             add(new Book("History", "Bob", "1990-01-28"));
         }
     };
+
     protected ArrayList<Movie> allMovies = new ArrayList<Movie>(){
         {
             add(new Movie("Titanic", "1997", "wangxue", 9));
@@ -20,6 +22,19 @@ public class LibraryService {
 
         }
     };
+
+    private ArrayList<User> allUsers = new ArrayList<User>(){
+        {
+            add(new User("123-4567", "111"));
+            add(new User("000-5678", "222"));
+        }
+    };
+
+    private User currentUser;
+
+    public User getCurrentUser(){
+        return currentUser;
+    }
 
     public String getWelcomeMessage(){
 
@@ -44,36 +59,43 @@ public class LibraryService {
         if(name == null || name.isEmpty()){
             return false;
         }
-        int i;
-        for(i=0; i<allBooks.size(); i++){
+        for(int i=0; i<allBooks.size(); i++){
             if(allBooks.get(i).getBookName().equals(name)&& !allBooks.get(i).getStatus()){
                 allBooks.get(i).setStatus(true);
-                break;
+                allBooks.get(i).setLibraryNumber(currentUser.getLibraryNumber());
+                return true;
             }
         }
-        if(i == allBooks.size())
-            return false;
-        return true;
+        return false;
     }
 
     public boolean returnBook(String name){
-        int i;
-        for(i=0; i<allBooks.size(); i++){
-            if(allBooks.get(i).getBookName().equals(name)&& allBooks.get(i).getStatus()){
+        for(int i=0; i<allBooks.size(); i++){
+            if(allBooks.get(i).getBookName().equals(name)&& allBooks.get(i).getStatus() && allBooks.get(i).getLibraryNumber().equals(currentUser.getLibraryNumber())){
                 allBooks.get(i).setStatus(false);
-                break;
+                return true;
             }
         }
-        if(i == allBooks.size())
-            return false;
-        return true;
+        return false;
     }
 
     public boolean checkoutMovie(String name) {
-        int i;
-        for(i=0; i<allMovies.size(); i++){
+        for(int i=0; i<allMovies.size(); i++){
             if(allMovies.get(i).getMovieName().equals(name))
                 return true;
+        }
+        return false;
+    }
+
+    public boolean isLogIn(String userInput) {
+        for(int i=0; i<allUsers.size(); i++){
+            String libraryNumber = userInput.split(",")[0];
+            String password = userInput.split(",")[1];
+            if(libraryNumber.equals(allUsers.get(i).getLibraryNumber()) && password.equals(allUsers.get(i).getPassword())){
+                currentUser = allUsers.get(i);
+                currentUser.setIsLogin(true);
+                return true;
+            }
         }
         return false;
     }

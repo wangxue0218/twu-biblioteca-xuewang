@@ -1,6 +1,7 @@
 package com.twu.biblioteca.Router;
 
 
+import com.twu.biblioteca.Router.ActionHandler.*;
 import com.twu.biblioteca.Service.LibraryService;
 import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 
@@ -30,6 +31,8 @@ public class LibraryRouter {
                 return new CheckoutBookActionHandler(m_routerContext, m_libraryService);
             case CheckoutMovie:
                 return new CheckoutMovieActionHandler(m_routerContext, m_libraryService);
+            case LogIn:
+                return new LogInActionHandler(m_routerContext, m_libraryService);
             case Return:
                 return new ReturnActionHandler(m_routerContext, m_libraryService);
             default:

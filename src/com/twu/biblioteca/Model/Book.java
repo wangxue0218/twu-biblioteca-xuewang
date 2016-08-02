@@ -7,6 +7,7 @@ public class Book {
     private String author;
     private String year;
     private boolean isChecked = false;
+    private String libraryNumber;
 
     public Book(String _bookName, String _author, String _year){
         this.bookName = _bookName;
@@ -34,4 +35,11 @@ public class Book {
         return isChecked;
     }
 
+    public String getLibraryNumber() {
+        return libraryNumber;
+    }
+
+    public void setLibraryNumber(String libraryNumber) {
+        this.libraryNumber = libraryNumber;
+    }
 }

@@ -33,4 +33,11 @@ public class LibraryServiceTest_2 {
         boolean isAvailable = libraryService.checkoutMovie("hehe");
         assertEquals(false, isAvailable);
     }
+
+    @Test
+    public void should_return_true_when_user_input_valid_user_name_and_password(){
+        LibraryService libraryService = new LibraryService();
+        boolean isLogin = libraryService.isLogIn("123-4567,111");
+        assertEquals(true, isLogin);
+    }
 }

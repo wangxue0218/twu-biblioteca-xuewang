@@ -7,5 +7,6 @@ public enum RouterState
     MainMenu,
     CheckoutBook,
     Return,
-    CheckoutMovie
+    CheckoutMovie,
+    LogIn
 }
