@@ -1,6 +1,7 @@
 package com.twu.biblioteca;
 
 import com.twu.biblioteca.Model.MainMenuMessage;
+import com.twu.biblioteca.Model.User;
 import com.twu.biblioteca.Router.LibraryRouter;
 import com.twu.biblioteca.Router.RouterMessage;
 import com.twu.biblioteca.Router.RouterState;
@@ -102,6 +103,16 @@ public class LibraryShellTest_2 {
         libraryRouter.getRouteMessage("123-4567,111");
         String actualMainMenu = libraryRouter.getRouteMessage(null).getText();
         assertEquals(expectMainMenu, actualMainMenu);
+    }
+
+    @Test
+    public void should_display_current_user_information_with_name_emailAdress_phoneNumber_when_current_status_is_MainMenu_and_user_select_UserInformation_and_user_is_login(){
+        LibraryService libraryService = new LibraryService();
+        libraryService.setCurrentUser(new User("000-5678", "222", true));
+        LibraryRouter libraryRouter = new LibraryRouter(RouterState.MainMenu, libraryService);
+        String userDetails = libraryRouter.getRouteMessage("7").getText();
+        String expectDetails = "xuexue,henan,123456\n";
+        assertEquals(expectDetails,userDetails);
     }
 
 }

@@ -2,6 +2,7 @@ package com.twu.biblioteca.Router.ActionHandler;
 
 import com.twu.biblioteca.Model.MainMenuMessage;
 import com.twu.biblioteca.Model.Movie;
+import com.twu.biblioteca.Model.User;
 import com.twu.biblioteca.Router.ActionHandler.IActionHandler;
 import com.twu.biblioteca.Router.RouterContext;
 import com.twu.biblioteca.Router.RouterMessage;
@@ -38,6 +39,12 @@ public class MainMenuActionHandler implements IActionHandler {
             moviesDetails += (movies.get(i).getMovieName()+","+movies.get(i).getMovieYear()+","+movies.get(i).getMovieDirector()+","+movies.get(i).getMovieRating()+"\n");
         }
         return moviesDetails;
+    }
+
+    public String getUserInformation(){
+        User currentUser = m_libraryService.getUserInformation();
+        String userInformations = currentUser.getUserName()+","+currentUser.getUserAdress()+","+currentUser.getPhoneNumber()+"\n";
+        return userInformations;
     }
 
     @Override
@@ -90,6 +97,9 @@ public class MainMenuActionHandler implements IActionHandler {
         if(userInput.equals("6")){
             m_routerContext.setNextState(RouterState.LogIn);
             return new RouterMessage(false, remindLoginMessage, true);
+        }
+        if(userInput.equals("7")){
+            return new RouterMessage(false, getUserInformation(), false);
         }
         return new RouterMessage(false, "Select a valid option!\n", false);
     }
