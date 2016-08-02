@@ -6,7 +6,7 @@ package com.twu.biblioteca.Model;
 public class User {
     private String libraryNumber;
     private String password;
-    private boolean isLogin = false;
+    private boolean isLogin;
     private String userName;
     private String userAdress;
     private String phoneNumber;

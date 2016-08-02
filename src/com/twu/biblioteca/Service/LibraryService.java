@@ -96,7 +96,8 @@ public class LibraryService {
             String libraryNumber = userInput.split(",")[0];
             String password = userInput.split(",")[1];
             if(libraryNumber.equals(allUsers.get(i).getLibraryNumber()) && password.equals(allUsers.get(i).getPassword())){
-                currentUser = allUsers.get(i);
+//                currentUser = allUsers.get(i);
+                setCurrentUser(allUsers.get(i));
                 currentUser.setIsLogin(true);
                 return true;
             }

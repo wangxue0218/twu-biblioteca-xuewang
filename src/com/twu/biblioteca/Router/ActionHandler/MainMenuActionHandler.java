@@ -54,7 +54,8 @@ public class MainMenuActionHandler implements IActionHandler {
         if (userInput == null) {
             boolean isLogin = m_libraryService.getCurrentUser().getIsLogin();
             if(isLogin){
-                MainMenuText = new MainMenuMessage().getMainMenu() + "7. UserInformation\n";
+                String newMainMenu = new MainMenuMessage().getMainMenu() + "7. UserInformation\n";
+                return new RouterMessage(false, newMainMenu, true);
             }
             return new RouterMessage(false, MainMenuText, true);
         }
@@ -95,6 +96,10 @@ public class MainMenuActionHandler implements IActionHandler {
             return new RouterMessage(false, "", true);
         }
         if(userInput.equals("6")){
+            boolean curUserIsLogin = m_libraryService.getCurrentUser().getIsLogin();
+            if(curUserIsLogin){
+                return new RouterMessage(false, "You are LogIn,try another option\n",false);
+            }
             m_routerContext.setNextState(RouterState.LogIn);
             return new RouterMessage(false, remindLoginMessage, true);
         }
