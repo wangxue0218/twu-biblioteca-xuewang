@@ -26,4 +26,11 @@ public class LibraryServiceTest_2 {
         boolean isAvailable = libraryService.checkoutMovie("Movie2");
         assertEquals(true, isAvailable);
     }
+
+    @Test
+    public void should_return_false_when_usar_input_Invalid_movie_name(){
+        LibraryService libraryService = new LibraryService();
+        boolean isAvailable = libraryService.checkoutMovie("hehe");
+        assertEquals(false, isAvailable);
+    }
 }
