@@ -1,6 +1,7 @@
 package com.twu.biblioteca.Service;
 
-import com.twu.biblioteca.Book;
+import com.twu.biblioteca.Model.Book;
+import com.twu.biblioteca.Model.Movie;
 
 import java.util.ArrayList;
 
@@ -10,6 +11,13 @@ public class LibraryService {
             add(new Book("Math", "Jhon", "1990-02-21"));
             add(new Book("English", "David", "1889-09-20"));
             add(new Book("History", "Bob", "1990-01-28"));
+        }
+    };
+    protected ArrayList<Movie> allMovies = new ArrayList<Movie>(){
+        {
+            add(new Movie("Titanic", "1997", "wangxue", 9));
+            add(new Movie("Movie2", "1990", "xuewang", 8));
+
         }
     };
 
@@ -27,6 +35,11 @@ public class LibraryService {
         }
         return unCheckBookList;
     }
+
+    public ArrayList<Movie> listMovies(){
+        return allMovies;
+    }
+
     public boolean checkoutBook(String name){
         if(name == null || name.isEmpty()){
             return false;

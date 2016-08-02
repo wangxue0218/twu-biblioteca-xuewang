@@ -1,7 +1,7 @@
 package com.twu.biblioteca.Router;
 
 import com.twu.biblioteca.Service.LibraryService;
-import com.twu.biblioteca.Book;
+import com.twu.biblioteca.Model.Book;
 
 import java.util.ArrayList;
 
