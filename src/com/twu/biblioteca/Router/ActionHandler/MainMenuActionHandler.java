@@ -70,6 +70,11 @@ public class MainMenuActionHandler implements IActionHandler {
             m_routerContext.setNextState(RouterState.CheckoutMovie);
             return new RouterMessage(false, "", true);
         }
+        if(userInput.equals("6")){
+            String message = "Please input your library number and passward, and split with ','\n";
+            m_routerContext.setNextState(RouterState.LogIn);
+            return new RouterMessage(false, message, true);
+        }
         return new RouterMessage(false, "Select a valid option!\n", false);
     }
 }

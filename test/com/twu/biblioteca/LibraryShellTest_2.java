@@ -2,15 +2,13 @@ package com.twu.biblioteca;
 
 import com.twu.biblioteca.Model.MainMenuMessage;
 import com.twu.biblioteca.Router.LibraryRouter;
+import com.twu.biblioteca.Router.RouterMessage;
 import com.twu.biblioteca.Router.RouterState;
 import com.twu.biblioteca.Service.LibraryService;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
 
-/**
- * Created by xuewang on 8/2/16.
- */
 public class LibraryShellTest_2 {
 
     @Test
@@ -45,4 +43,21 @@ public class LibraryShellTest_2 {
        assertEquals(expectMessage, actualMessage);
    }
 
+   @Test
+    public void should_display_Login_message_and_waiting_for_input_when_user_select_Login_and_current_status_is_MainMenu(){
+       LibraryRouter libraryRouter = new LibraryRouter(RouterState.MainMenu,new LibraryService());
+       RouterMessage routerMessage = libraryRouter.getRouteMessage("6");
+       String expectMessage = "Please input your library number and passward, and split with ','\n";
+       assertEquals(expectMessage, routerMessage.getText());
+       assertEquals(true, routerMessage.isWaitFroInput());
+   }
+
+   @Test
+    public void should_display_MainMenu_message_when_current_status_is_Login_and_user_input_library_number_and_passward_and_user_continue_execute_getRouteMessage(){
+       String expectMessage = new MainMenuMessage().getMainMenu();
+       LibraryRouter libraryRouter = new LibraryRouter(RouterState.LogIn, new LibraryService());
+       libraryRouter.getRouteMessage("123_456,111");
+       String actualMessage = libraryRouter.getRouteMessage(null).getText();
+       assertEquals(expectMessage, actualMessage);
+   }
 }
