@@ -115,4 +115,14 @@ public class LibraryShellTest_2 {
         assertEquals(expectDetails,userDetails);
     }
 
+    @Test
+    public void should_display_MainMenu_message_and_contain_UserInformation_when_current_status_is_MainMenu_and_user_select_UserInformation_and_continue_excute_getRouteMessage(){
+        LibraryService libraryService = new LibraryService();
+        libraryService.setCurrentUser(new User("000-5678", "222", true));
+        LibraryRouter libraryRouter = new LibraryRouter(RouterState.MainMenu, libraryService);
+        libraryRouter.getRouteMessage("7");
+        String expectMenu = new MainMenuMessage().getMainMenu() + "7. UserInformation\n";
+        assertEquals(expectMenu, libraryRouter.getRouteMessage(null).getText());
+    }
+
 }
