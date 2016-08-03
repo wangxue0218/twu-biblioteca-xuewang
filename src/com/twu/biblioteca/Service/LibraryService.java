@@ -15,7 +15,7 @@ public class LibraryService {
         }
     };
 
-    protected ArrayList<Movie> allMovies = new ArrayList<Movie>(){
+    private ArrayList<Movie> allMovies = new ArrayList<Movie>(){
         {
             add(new Movie("Titanic", "1997", "wangxue", 9));
             add(new Movie("Movie2", "1990", "xuewang", 8));
@@ -42,15 +42,14 @@ public class LibraryService {
 
     public String getWelcomeMessage(){
 
-        String welcomeMessage = "*****Welcom to TWU Library!*****\n\n";
-        return welcomeMessage;
+        return "*****Welcom to TWU Library!*****\n\n";
     }
 
     public ArrayList<Book> ListBooks(){
         ArrayList<Book> unCheckBookList = new ArrayList<Book>();
-        for(int i=0; i<allBooks.size(); i++){
-            if(allBooks.get(i).getStatus() == false)
-                unCheckBookList.add(allBooks.get(i));
+        for (Book allBook : allBooks) {
+            if (!allBook.getStatus())
+                unCheckBookList.add(allBook);
         }
         return unCheckBookList;
     }
@@ -63,10 +62,10 @@ public class LibraryService {
         if(name == null || name.isEmpty()){
             return false;
         }
-        for(int i=0; i<allBooks.size(); i++){
-            if(allBooks.get(i).getBookName().equals(name)&& !allBooks.get(i).getStatus()){
-                allBooks.get(i).setStatus(true);
-                allBooks.get(i).setLibraryNumber(currentUser.getLibraryNumber());
+        for (Book allBook : allBooks) {
+            if (allBook.getBookName().equals(name) && !allBook.getStatus()) {
+                allBook.setStatus(true);
+                allBook.setLibraryNumber(currentUser.getLibraryNumber());
                 return true;
             }
         }
@@ -74,9 +73,9 @@ public class LibraryService {
     }
 
     public boolean returnBook(String name){
-        for(int i=0; i<allBooks.size(); i++){
-            if(allBooks.get(i).getBookName().equals(name)&& allBooks.get(i).getStatus() && allBooks.get(i).getLibraryNumber().equals(currentUser.getLibraryNumber())){
-                allBooks.get(i).setStatus(false);
+        for (Book allBook : allBooks) {
+            if (allBook.getBookName().equals(name) && allBook.getStatus() && allBook.getLibraryNumber().equals(currentUser.getLibraryNumber())) {
+                allBook.setStatus(false);
                 return true;
             }
         }
@@ -84,20 +83,23 @@ public class LibraryService {
     }
 
     public boolean checkoutMovie(String name) {
-        for(int i=0; i<allMovies.size(); i++){
-            if(allMovies.get(i).getMovieName().equals(name))
+        for (Movie allMovy : allMovies) {
+            if (allMovy.getMovieName().equals(name))
                 return true;
         }
         return false;
     }
 
     public boolean isLogIn(String userInput) {
-        for(int i=0; i<allUsers.size(); i++){
-            String libraryNumber = userInput.split(",")[0];
-            String password = userInput.split(",")[1];
-            if(libraryNumber.equals(allUsers.get(i).getLibraryNumber()) && password.equals(allUsers.get(i).getPassword())){
-//                currentUser = allUsers.get(i);
-                setCurrentUser(allUsers.get(i));
+        for (User allUser : allUsers) {
+            if(userInput.indexOf(',') == -1)
+                return false;
+            String libraryNumber = userInput.split(",")[0].trim();
+            String password = userInput.split(",")[1].trim();
+            if(libraryNumber.equals("") && userInput.equals(""))
+                return  false;
+            if (libraryNumber.equals(allUser.getLibraryNumber()) && password.equals(allUser.getPassword())) {
+                setCurrentUser(allUser);
                 currentUser.setIsLogin(true);
                 return true;
             }
@@ -107,9 +109,9 @@ public class LibraryService {
 
     public User getUserInformation() {
         if(currentUser.getIsLogin()){
-            for(int i=0; i< allUsers.size(); i++){
-                if(currentUser.getLibraryNumber().equals(allUsers.get(i).getLibraryNumber()))
-                    return allUsers.get(i);
+            for (User allUser : allUsers) {
+                if (currentUser.getLibraryNumber().equals(allUser.getLibraryNumber()))
+                    return allUser;
             }
         }
         return null;

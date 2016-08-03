@@ -7,8 +7,8 @@ import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 
 public class LibraryRouter {
 
-    RouterContext m_routerContext;
-    LibraryService m_libraryService;
+    private RouterContext m_routerContext;
+    private LibraryService m_libraryService;
 
     public LibraryRouter(RouterState routerState, LibraryService libraryService){
         m_libraryService = libraryService;
@@ -19,7 +19,7 @@ public class LibraryRouter {
         return getActionHandler().handle(userInput);
 
     }
-    IActionHandler getActionHandler()
+    public IActionHandler getActionHandler()
     {
         switch (m_routerContext.getCurrentState())
         {

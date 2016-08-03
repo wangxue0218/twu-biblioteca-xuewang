@@ -14,7 +14,7 @@ import java.util.ArrayList;
 
 public class MainMenuActionHandler implements IActionHandler {
     RouterContext m_routerContext;
-    LibraryService m_libraryService;
+    private LibraryService m_libraryService;
     private static String MainMenuText = new MainMenuMessage().getMainMenu();
 
     public MainMenuActionHandler(RouterContext routerContext, LibraryService libraryService)
