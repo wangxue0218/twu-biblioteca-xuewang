@@ -13,24 +13,18 @@ public class LibraryServiceTest {
         LibraryService libraryService = new LibraryService();
         String welcomMessage = libraryService.getWelcomeMessage();
         String actualWelcomMessage = "*****Welcom to TWU Library!*****\n\n";
+
         assertEquals(actualWelcomMessage, welcomMessage);
     }
 
-//    @Test
-//    public void Should_list_all_books_names_when_calling_listBooks_method(){
-//        LibraryService libraryService = new LibraryService();
-//        libraryService.ListBooks();
-//        String listResult = "Math\n" + "English\n" + "History\n";
-//        assertEquals(listResult,outputStream.toString());
-//    }
+    @Test
+    public void Should_list_all_books_with_name_author_published_year(){
+        LibraryService libraryService = new LibraryService();
 
-//    @Test
-//    public void Should_list_all_books_with_name_author_published_year(){
-//        LibraryService libraryService = new LibraryService();
-//        String allBooks = libraryService.ListBooks();
-//        String listDetailResult = "Math,Jhon,1990-02-21\n" + "English,David,1889-09-20\n" + "History,Bob,1990-01-28\n";
-//        assertEquals(listDetailResult, allBooks);
-//    }
+        assertEquals("Math", libraryService.ListBooks().get(0).getBookName());
+        assertEquals("Jhon", libraryService.ListBooks().get(0).getBookAuthor());
+        assertEquals("1990-02-21", libraryService.ListBooks().get(0).getBookYear());
+    }
 
     @Test
     public void Should_return_true_when_call_checkoutBook_if_the_book_has_not_checked_out_and_exists(){
@@ -87,7 +81,4 @@ public class LibraryServiceTest {
         assertEquals("English", libraryService.ListBooks().get(1).getBookName());
         assertEquals("History", libraryService.ListBooks().get(2).getBookName());
     }
-
-
-
 }

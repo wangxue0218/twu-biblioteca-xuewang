@@ -3,32 +3,17 @@ package com.twu.biblioteca.Service;
 import com.twu.biblioteca.Model.Book;
 import com.twu.biblioteca.Model.Movie;
 import com.twu.biblioteca.Model.User;
+import com.twu.biblioteca.Resource.DataResource;
 
 import java.util.ArrayList;
 
 public class LibraryService {
-    private ArrayList<Book> allBooks = new ArrayList<Book>(){
-        {
-            add(new Book("Math", "Jhon", "1990-02-21"));
-            add(new Book("English", "David", "1889-09-20"));
-            add(new Book("History", "Bob", "1990-01-28"));
-        }
-    };
 
-    private ArrayList<Movie> allMovies = new ArrayList<Movie>(){
-        {
-            add(new Movie("Titanic", "1997", "wangxue", 9));
-            add(new Movie("Movie2", "1990", "xuewang", 8));
+    private ArrayList<Book> allBooks = new DataResource().getAllBooks();
 
-        }
-    };
+    private ArrayList<Movie> allMovies = new DataResource().getAllMovies();
 
-    private ArrayList<User> allUsers = new ArrayList<User>(){
-        {
-            add(new User("123-4567", "111", false, "xue", "henan", "123456"));
-            add(new User("000-5678", "222", false, "xuexue", "henan", "123456"));
-        }
-    };
+    private ArrayList<User> allUsers = new DataResource().getAllUsers();
 
     private User currentUser = new User();
 

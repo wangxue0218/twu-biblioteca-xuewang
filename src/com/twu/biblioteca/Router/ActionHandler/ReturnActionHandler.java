@@ -6,12 +6,9 @@ import com.twu.biblioteca.Router.RouterMessage;
 import com.twu.biblioteca.Router.RouterState;
 import com.twu.biblioteca.Service.LibraryService;
 
-/**
- * Created by xuewang on 8/1/16.
- */
 public class ReturnActionHandler implements IActionHandler {
-    RouterContext m_routerContext;
-    LibraryService m_libraryService;
+    private RouterContext m_routerContext;
+    private LibraryService m_libraryService;
 
     public ReturnActionHandler(RouterContext routerContext, LibraryService libraryService)
     {

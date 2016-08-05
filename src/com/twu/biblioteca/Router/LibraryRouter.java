@@ -19,7 +19,7 @@ public class LibraryRouter {
         return getActionHandler().handle(userInput);
 
     }
-    public IActionHandler getActionHandler()
+    private IActionHandler getActionHandler()
     {
         switch (m_routerContext.getCurrentState())
         {

@@ -1,6 +1,6 @@
 package com.twu.biblioteca;
 
-import com.twu.biblioteca.Model.MainMenuMessage;
+import com.twu.biblioteca.Resource.DataResource;
 import com.twu.biblioteca.Model.User;
 import com.twu.biblioteca.Router.LibraryRouter;
 import com.twu.biblioteca.Router.RouterMessage;
@@ -22,7 +22,7 @@ public class LibraryShellTest_2 {
 
     @Test
     public void should_display_MainMenu_when_current_status_is_MainMenu_and_user_select_ListMovies_and_continue_execute_GetRouteMessage_method(){
-        String mainMenuText = new MainMenuMessage().getMainMenu();
+        String mainMenuText = new DataResource().getMainMenu();
         LibraryRouter libraryRouter = new LibraryRouter(RouterState.MainMenu, new LibraryService());
         libraryRouter.getRouteMessage("4");
         String actualResult = libraryRouter.getRouteMessage(null).getText();
@@ -37,7 +37,7 @@ public class LibraryShellTest_2 {
 
    @Test
     public void should_display_MainMenu_when_current_status_is_CheckoutMovie_and_user_input_movie_name_and_continue_execute_getRouteMessage_method(){
-       String expectMessage = new MainMenuMessage().getMainMenu();
+       String expectMessage = new DataResource().getMainMenu();
        LibraryRouter libraryRouter = new LibraryRouter(RouterState.CheckoutMovie, new LibraryService());
        libraryRouter.getRouteMessage("hehe");
        String actualMessage = libraryRouter.getRouteMessage(null).getText();
@@ -55,7 +55,7 @@ public class LibraryShellTest_2 {
 
    @Test
     public void should_display_MainMenu_message_when_current_status_is_Login_and_user_input_library_number_and_passward_and_user_continue_execute_getRouteMessage(){
-       String expectMessage = new MainMenuMessage().getMainMenu();
+       String expectMessage = new DataResource().getMainMenu();
        LibraryRouter libraryRouter = new LibraryRouter(RouterState.LogIn, new LibraryService());
        libraryRouter.getRouteMessage("123_456,111");
        String actualMessage = libraryRouter.getRouteMessage(null).getText();
@@ -92,14 +92,14 @@ public class LibraryShellTest_2 {
     @Test
     public void should_display_MainMenu_not_contains_UserInformation_option_when_user_is_not_login_execute(){
         LibraryRouter libraryRouter = new LibraryRouter(RouterState.MainMenu,new LibraryService());
-        String expectMainMenu = new MainMenuMessage().getMainMenu();
+        String expectMainMenu = new DataResource().getMainMenu();
         assertEquals(expectMainMenu, libraryRouter.getRouteMessage(null).getText());
     }
 
     @Test
     public void should_display_MainMenu_contains_UserInformation_option_when_current_status_is_login_and_user_login_success_and_execute_getRouteMessage(){
         LibraryRouter libraryRouter = new LibraryRouter(RouterState.LogIn,new LibraryService());
-        String expectMainMenu = new MainMenuMessage().getMainMenu() + "7. UserInformation\n";
+        String expectMainMenu = new DataResource().getMainMenu() + "7. UserInformation\n";
         libraryRouter.getRouteMessage("123-4567,111");
         String actualMainMenu = libraryRouter.getRouteMessage(null).getText();
         assertEquals(expectMainMenu, actualMainMenu);
@@ -121,7 +121,7 @@ public class LibraryShellTest_2 {
         libraryService.setCurrentUser(new User("000-5678", "222", true));
         LibraryRouter libraryRouter = new LibraryRouter(RouterState.MainMenu, libraryService);
         libraryRouter.getRouteMessage("7");
-        String expectMenu = new MainMenuMessage().getMainMenu() + "7. UserInformation\n";
+        String expectMenu = new DataResource().getMainMenu() + "7. UserInformation\n";
         assertEquals(expectMenu, libraryRouter.getRouteMessage(null).getText());
     }
 

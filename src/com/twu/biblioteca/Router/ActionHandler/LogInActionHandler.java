@@ -7,8 +7,8 @@ import com.twu.biblioteca.Service.LibraryService;
 
 
 public class LogInActionHandler implements IActionHandler{
-    RouterContext m_routerContext;
-    LibraryService m_libraryService;
+    private RouterContext m_routerContext;
+    private LibraryService m_libraryService;
 
     public LogInActionHandler(RouterContext routerContext, LibraryService libraryService) {
         m_routerContext = routerContext;

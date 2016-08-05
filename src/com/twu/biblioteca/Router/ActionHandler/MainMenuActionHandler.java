@@ -1,9 +1,8 @@
 package com.twu.biblioteca.Router.ActionHandler;
 
-import com.twu.biblioteca.Model.MainMenuMessage;
+import com.twu.biblioteca.Resource.DataResource;
 import com.twu.biblioteca.Model.Movie;
 import com.twu.biblioteca.Model.User;
-import com.twu.biblioteca.Router.ActionHandler.IActionHandler;
 import com.twu.biblioteca.Router.RouterContext;
 import com.twu.biblioteca.Router.RouterMessage;
 import com.twu.biblioteca.Router.RouterState;
@@ -13,9 +12,9 @@ import com.twu.biblioteca.Model.Book;
 import java.util.ArrayList;
 
 public class MainMenuActionHandler implements IActionHandler {
-    RouterContext m_routerContext;
+    private RouterContext m_routerContext;
     private LibraryService m_libraryService;
-    private static String MainMenuText = new MainMenuMessage().getMainMenu();
+    private static String MainMenuText = new DataResource().getMainMenu();
 
     public MainMenuActionHandler(RouterContext routerContext, LibraryService libraryService)
     {
@@ -23,28 +22,27 @@ public class MainMenuActionHandler implements IActionHandler {
         m_libraryService = libraryService;
     }
 
-    public String getBookDetails(){
+    private String getBookDetails(){
         ArrayList<Book> unCheckBook = m_libraryService.ListBooks();
         String booksDetails = "";
-        for(int i=0; i<unCheckBook.size(); i++){
-            booksDetails += (unCheckBook.get(i).getBookName() + "," + unCheckBook.get(i).getBookAuthor() + "," + unCheckBook.get(i).getBookYear() + "\n");
+        for (Book anUnCheckBook : unCheckBook) {
+            booksDetails += (anUnCheckBook.getBookName() + "," + anUnCheckBook.getBookAuthor() + "," + anUnCheckBook.getBookYear() + "\n");
         }
         return booksDetails;
     }
 
-    public String getMovieDetails(){
+    private String getMovieDetails(){
         ArrayList<Movie> movies = m_libraryService.listMovies();
         String moviesDetails = "";
-        for(int i=0; i<movies.size(); i++){
-            moviesDetails += (movies.get(i).getMovieName()+","+movies.get(i).getMovieYear()+","+movies.get(i).getMovieDirector()+","+movies.get(i).getMovieRating()+"\n");
+        for (Movie movie : movies) {
+            moviesDetails += (movie.getMovieName() + "," + movie.getMovieYear() + "," + movie.getMovieDirector() + "," + movie.getMovieRating() + "\n");
         }
         return moviesDetails;
     }
 
-    public String getUserInformation(){
+    private String getUserInformation(){
         User currentUser = m_libraryService.getUserInformation();
-        String userInformations = currentUser.getUserName()+","+currentUser.getUserAdress()+","+currentUser.getPhoneNumber()+"\n";
-        return userInformations;
+        return currentUser.getUserName()+","+currentUser.getUserAdress()+","+currentUser.getPhoneNumber()+"\n";
     }
 
     @Override
@@ -54,7 +52,7 @@ public class MainMenuActionHandler implements IActionHandler {
         if (userInput == null) {
             boolean isLogin = m_libraryService.getCurrentUser().getIsLogin();
             if(isLogin){
-                String newMainMenu = new MainMenuMessage().getMainMenu() + "7. UserInformation\n";
+                String newMainMenu = new DataResource().getMainMenu() + "7. UserInformation\n";
                 return new RouterMessage(false, newMainMenu, true);
             }
             return new RouterMessage(false, MainMenuText, true);

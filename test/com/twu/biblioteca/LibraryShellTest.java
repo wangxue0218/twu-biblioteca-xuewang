@@ -1,6 +1,6 @@
 package com.twu.biblioteca;
 
-import com.twu.biblioteca.Model.MainMenuMessage;
+import com.twu.biblioteca.Resource.DataResource;
 import com.twu.biblioteca.Model.User;
 import com.twu.biblioteca.Router.RouterMessage;
 import com.twu.biblioteca.Service.LibraryService;
@@ -24,7 +24,7 @@ public class LibraryShellTest {
     @Test
     public void Should_display_main_menu_when_current_state_is_MainMenu(){
         LibraryRouter libraryRouter = new LibraryRouter(RouterState.MainMenu,new LibraryService());
-        String exceptResult = new MainMenuMessage().getMainMenu();
+        String exceptResult = new DataResource().getMainMenu();
         RouterMessage routerMessage = libraryRouter.getRouteMessage(null);
         String actualResult = routerMessage.getText();
         assertEquals(exceptResult,actualResult);
@@ -43,16 +43,16 @@ public class LibraryShellTest {
 
     @Test
     public void Should_display_invalid_message_when_user_input_is_not_List_Books_and_current_state_is_MainMenu(){
-        String mainMenuText = new MainMenuMessage().getMainMenu();
         LibraryRouter libraryRouter = new LibraryRouter(RouterState.MainMenu, new LibraryService());
         String actualResult = libraryRouter.getRouteMessage("59").getText();
         String expectResult = "Select a valid option!\n";
+
         assertEquals(expectResult, actualResult);
     }
 
     @Test
     public void Should_display_main_menu_when_user_input_is_not_list_book_and_current_state_is_MainMenu_and_user_continue_exeution(){
-        String mainMenuText = new MainMenuMessage().getMainMenu();
+        String mainMenuText = new DataResource().getMainMenu();
         LibraryRouter libraryRouter = new LibraryRouter(RouterState.MainMenu, new LibraryService());
         libraryRouter.getRouteMessage("59");
         String actualResult = libraryRouter.getRouteMessage(null).getText();
@@ -90,7 +90,7 @@ public class LibraryShellTest {
     }
     @Test
     public void Should_display_main_menu_message_when_user_input_valid_message_and_current_status_is_checkoutBooks_and_continue_execution(){
-        String mainMenuMessage = new MainMenuMessage().getMainMenu();
+        String mainMenuMessage = new DataResource().getMainMenu();
         LibraryRouter libraryRouter = new LibraryRouter(RouterState.CheckoutBook, new LibraryService());
         libraryRouter.getRouteMessage("Math");
         String actualMessage = libraryRouter.getRouteMessage(null).getText();
@@ -107,7 +107,7 @@ public class LibraryShellTest {
 
     @Test
     public void Should_display_main_menu_message_when_user_input_Invalid_message_and_current_status_is_checkoutBooks_and_continue_execution(){
-        String mainMenuMessage = new MainMenuMessage().getMainMenu();
+        String mainMenuMessage = new DataResource().getMainMenu();
         LibraryRouter libraryRouter = new LibraryRouter(RouterState.CheckoutBook, new LibraryService());
         libraryRouter.getRouteMessage("hehe");
         String actualMessage = libraryRouter.getRouteMessage(null).getText();
@@ -133,7 +133,7 @@ public class LibraryShellTest {
 
     @Test
     public void Should_display_main_menu_message_when_user_input_valid_message_and_current_status_is_returnBooks_and_continue_execution(){
-        String mainMenuMessage = new MainMenuMessage().getMainMenu();
+        String mainMenuMessage = new DataResource().getMainMenu();
         LibraryService libraryService = new LibraryService();
         libraryService.setCurrentUser(new User("123-4567", "111"));
         libraryService.checkoutBook("Math");
@@ -153,7 +153,7 @@ public class LibraryShellTest {
 
     @Test
     public void Should_display_main_menu_message_when_user_input_Invalid_message_and_current_status_is_returnBooks_and_continue_execution(){
-        String mainMenuMessage = new MainMenuMessage().getMainMenu();
+        String mainMenuMessage = new DataResource().getMainMenu();
         LibraryRouter libraryRouter = new LibraryRouter(RouterState.Return, new LibraryService());
         libraryRouter.getRouteMessage("hehe");
         String actualMessage = libraryRouter.getRouteMessage(null).getText();

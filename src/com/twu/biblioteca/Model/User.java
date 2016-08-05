@@ -51,14 +51,6 @@ public class User {
         isLogin = status;
     }
 
-    public void setLibraryNumber(String libraryNumber) {
-        this.libraryNumber = libraryNumber;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
     public String getUserName() {
         return userName;
     }

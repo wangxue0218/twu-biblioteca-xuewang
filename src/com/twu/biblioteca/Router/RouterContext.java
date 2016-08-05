@@ -1,13 +1,11 @@
 package com.twu.biblioteca.Router;
 
-/**
- * Created by xuewang on 8/1/16.
- */
+
 public class RouterContext
 {
-    RouterState m_currentState;
+    private RouterState m_currentState;
 
-    public RouterContext(RouterState currentState)
+    RouterContext(RouterState currentState)
     {
         m_currentState = currentState;
     }
@@ -17,7 +15,7 @@ public class RouterContext
         m_currentState = state;
     }
 
-    public RouterState getCurrentState(){
+    RouterState getCurrentState(){
         return m_currentState;
     }
 }

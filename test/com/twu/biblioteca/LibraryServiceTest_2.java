@@ -11,6 +11,7 @@ public class LibraryServiceTest_2 {
     @Test
     public void should_return_all_available_movies_with_name_year_director_rating_when_call_listMovies_method(){
         LibraryService libraryService = new LibraryService();
+
         assertEquals("Titanic", libraryService.listMovies().get(0).getMovieName());
         assertEquals("1997", libraryService.listMovies().get(0).getMovieYear());
         assertEquals("wangxue", libraryService.listMovies().get(0).getMovieDirector());
@@ -82,6 +83,5 @@ public class LibraryServiceTest_2 {
         assertEquals("xuexue",currUser.getUserName());
         assertEquals("henan", currUser.getUserAdress());
         assertEquals("123456",currUser.getPhoneNumber());
-
     }
 }
